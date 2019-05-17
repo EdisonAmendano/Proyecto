@@ -9,12 +9,12 @@ package ec.edu.ups.vista;
  *
  * @author Edison
  */
-public class VentanaBuscarProducto extends javax.swing.JInternalFrame {
+public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form VentanaBuscarProducto
+     * Creates new form VentanaEliminarProducto
      */
-    public VentanaBuscarProducto() {
+    public VentanaEliminarProducto() {
         initComponents();
     }
 
@@ -32,15 +32,16 @@ public class VentanaBuscarProducto extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLPrecio = new javax.swing.JLabel();
         jLSock = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         txtStock = new javax.swing.JTextField();
-        btnCancelar = new javax.swing.JButton();
         jLCodigo = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Categoria del Producto"));
 
@@ -80,6 +81,10 @@ public class VentanaBuscarProducto extends javax.swing.JInternalFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        btnBuscar.setText("buscar");
+
+        btnCancelar.setText("Cancelar");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Producto"));
 
@@ -122,11 +127,10 @@ public class VentanaBuscarProducto extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnCancelar.setText("Cancelar");
-
         jLCodigo.setText("Codigo");
 
-        btnBuscar.setText("buscar");
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,8 +152,10 @@ public class VentanaBuscarProducto extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEliminar)
+                .addGap(94, 94, 94)
                 .addComponent(btnCancelar)
-                .addContainerGap())
+                .addGap(165, 165, 165))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,8 +169,10 @@ public class VentanaBuscarProducto extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCancelar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelar)
+                    .addComponent(btnEliminar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -175,6 +183,7 @@ public class VentanaBuscarProducto extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLCodigo;
     private javax.swing.JLabel jLPrecio;
     private javax.swing.JLabel jLSock;
