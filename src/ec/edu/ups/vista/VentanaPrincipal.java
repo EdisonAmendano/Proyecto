@@ -5,15 +5,17 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCliente;
+
 /**
  *
  * @author Edison
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaPrincipal
-     */
+    private VentanaCrearCliente vcc; 
+    private ControladorCliente controladorCliente;
+    
     public VentanaPrincipal() {
         initComponents();
     }
@@ -57,12 +59,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnModificarProducto = new javax.swing.JMenuItem();
         btnEliminarProducto = new javax.swing.JMenuItem();
         btnListarProducto = new javax.swing.JMenuItem();
-        menuFactura = new javax.swing.JMenu();
-        btnCrearFactura = new javax.swing.JMenuItem();
-        btnEliminarFactura = new javax.swing.JMenuItem();
+        menuCategotia = new javax.swing.JMenu();
         menuIdioma = new javax.swing.JMenu();
         btnEspañol = new javax.swing.JMenuItem();
         btnIngles = new javax.swing.JMenuItem();
+        menuFactura = new javax.swing.JMenu();
+        btnCrearFactura = new javax.swing.JMenuItem();
+        btnEliminarFactura = new javax.swing.JMenuItem();
 
         jMenu2.setText("File");
         jMenuBar1.add(jMenu2);
@@ -89,6 +92,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuCliente.setText("Cliente");
 
         btnCrearCliente.setText("Crear");
+        btnCrearCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearClienteActionPerformed(evt);
+            }
+        });
         menuCliente.add(btnCrearCliente);
 
         btnBuscarCliente.setText("Buscar");
@@ -145,15 +153,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuBar.add(menuProducto);
 
-        menuFactura.setText("Factura");
-
-        btnCrearFactura.setText("Crear");
-        menuFactura.add(btnCrearFactura);
-
-        btnEliminarFactura.setText("Eliminar");
-        menuFactura.add(btnEliminarFactura);
-
-        menuBar.add(menuFactura);
+        menuCategotia.setText("Categoria");
+        menuBar.add(menuCategotia);
 
         menuIdioma.setText("Idioma");
 
@@ -164,6 +165,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuIdioma.add(btnIngles);
 
         menuBar.add(menuIdioma);
+
+        menuFactura.setText("Factura");
+
+        btnCrearFactura.setText("Crear");
+        menuFactura.add(btnCrearFactura);
+
+        btnEliminarFactura.setText("Eliminar");
+        menuFactura.add(btnEliminarFactura);
+
+        menuBar.add(menuFactura);
 
         setJMenuBar(menuBar);
 
@@ -180,6 +191,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
+       
+    }//GEN-LAST:event_btnCrearClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,6 +262,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuCategotia;
     private javax.swing.JMenu menuCliente;
     private javax.swing.JMenu menuEmpleado;
     private javax.swing.JMenu menuFactura;

@@ -9,12 +9,12 @@ package ec.edu.ups.vista;
  *
  * @author Edison
  */
-public class VentanaListarProducto extends javax.swing.JInternalFrame {
+public class VentanaListarCategoria extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form VentanaListarProducto
+     * Creates new form VentanaListarCategoria
      */
-    public VentanaListarProducto() {
+    public VentanaListarCategoria() {
         initComponents();
     }
 
@@ -35,7 +35,7 @@ public class VentanaListarProducto extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Nombre", "Categoria", "Precio", "Stock"
+                "Codigo", "Nombre", "Descripcion"
             }
         ));
         jScrollPane1.setViewportView(table);
@@ -44,7 +44,7 @@ public class VentanaListarProducto extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
