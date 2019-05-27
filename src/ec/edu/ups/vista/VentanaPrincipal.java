@@ -5,19 +5,26 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCategoria;
+import ec.edu.ups.vista.cliente.VentanaCrearCliente;
 import ec.edu.ups.controlador.ControladorCliente;
+import ec.edu.ups.vista.categoria.VentanaBuscarCategoria;
+import ec.edu.ups.vista.categoria.VentanaCrearCategoria;
 
 /**
  *
  * @author Edison
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    private VentanaBuscarCategoria vtnbcat;
     private VentanaCrearCliente vcc; 
+    private VentanaCrearCategoria vtnccat;
     private ControladorCliente controladorCliente;
+    private ControladorCategoria controladorCategoria;
     
     public VentanaPrincipal() {
         initComponents();
+        controladorCategoria= new ControladorCategoria();
     }
 
     /**
@@ -40,6 +47,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
+        menuCategotia = new javax.swing.JMenu();
+        btnIngresarCategoria = new javax.swing.JMenuItem();
+        btnBuscarCategoria = new javax.swing.JMenuItem();
+        btnModificarCategoria = new javax.swing.JMenuItem();
+        btnListarCategoria = new javax.swing.JMenuItem();
+        btnEliminarCategoria = new javax.swing.JMenuItem();
+        menuProducto = new javax.swing.JMenu();
+        btnCrearProducto = new javax.swing.JMenuItem();
+        btnBuscarProducto = new javax.swing.JMenuItem();
+        btnModificarProducto = new javax.swing.JMenuItem();
+        btnEliminarProducto = new javax.swing.JMenuItem();
+        btnListarProducto = new javax.swing.JMenuItem();
         menuPersona = new javax.swing.JMenu();
         menuCliente = new javax.swing.JMenu();
         btnCrearCliente = new javax.swing.JMenuItem();
@@ -53,19 +72,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnModificarEmpleado = new javax.swing.JMenuItem();
         btnEliminarEmpleado = new javax.swing.JMenuItem();
         btnListarEmpleado = new javax.swing.JMenuItem();
-        menuProducto = new javax.swing.JMenu();
-        btnCrearProducto = new javax.swing.JMenuItem();
-        btnBuscarProducto = new javax.swing.JMenuItem();
-        btnModificarProducto = new javax.swing.JMenuItem();
-        btnEliminarProducto = new javax.swing.JMenuItem();
-        btnListarProducto = new javax.swing.JMenuItem();
-        menuCategotia = new javax.swing.JMenu();
-        menuIdioma = new javax.swing.JMenu();
-        btnEspañol = new javax.swing.JMenuItem();
-        btnIngles = new javax.swing.JMenuItem();
         menuFactura = new javax.swing.JMenu();
         btnCrearFactura = new javax.swing.JMenuItem();
         btnEliminarFactura = new javax.swing.JMenuItem();
+        menuIdioma = new javax.swing.JMenu();
+        btnEspañol = new javax.swing.JMenuItem();
+        btnIngles = new javax.swing.JMenuItem();
 
         jMenu2.setText("File");
         jMenuBar1.add(jMenu2);
@@ -86,6 +98,54 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        menuCategotia.setText("Categoria");
+
+        btnIngresarCategoria.setText("Ingresar");
+        btnIngresarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarCategoriaActionPerformed(evt);
+            }
+        });
+        menuCategotia.add(btnIngresarCategoria);
+
+        btnBuscarCategoria.setText("Buscar");
+        btnBuscarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCategoriaActionPerformed(evt);
+            }
+        });
+        menuCategotia.add(btnBuscarCategoria);
+
+        btnModificarCategoria.setText("Modificar");
+        menuCategotia.add(btnModificarCategoria);
+
+        btnListarCategoria.setText("Listar");
+        menuCategotia.add(btnListarCategoria);
+
+        btnEliminarCategoria.setText("Eliminar");
+        menuCategotia.add(btnEliminarCategoria);
+
+        menuBar.add(menuCategotia);
+
+        menuProducto.setText("Producto");
+
+        btnCrearProducto.setText("Crear");
+        menuProducto.add(btnCrearProducto);
+
+        btnBuscarProducto.setText("Buscar");
+        menuProducto.add(btnBuscarProducto);
+
+        btnModificarProducto.setText("Modificar");
+        menuProducto.add(btnModificarProducto);
+
+        btnEliminarProducto.setText("Eliminar");
+        menuProducto.add(btnEliminarProducto);
+
+        btnListarProducto.setText("Listar");
+        menuProducto.add(btnListarProducto);
+
+        menuBar.add(menuProducto);
 
         menuPersona.setText("Persona");
 
@@ -134,27 +194,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuBar.add(menuPersona);
 
-        menuProducto.setText("Producto");
+        menuFactura.setText("Factura");
 
-        btnCrearProducto.setText("Crear");
-        menuProducto.add(btnCrearProducto);
+        btnCrearFactura.setText("Crear");
+        menuFactura.add(btnCrearFactura);
 
-        btnBuscarProducto.setText("Buscar");
-        menuProducto.add(btnBuscarProducto);
+        btnEliminarFactura.setText("Eliminar");
+        menuFactura.add(btnEliminarFactura);
 
-        btnModificarProducto.setText("Modificar");
-        menuProducto.add(btnModificarProducto);
-
-        btnEliminarProducto.setText("Eliminar");
-        menuProducto.add(btnEliminarProducto);
-
-        btnListarProducto.setText("Listar");
-        menuProducto.add(btnListarProducto);
-
-        menuBar.add(menuProducto);
-
-        menuCategotia.setText("Categoria");
-        menuBar.add(menuCategotia);
+        menuBar.add(menuFactura);
 
         menuIdioma.setText("Idioma");
 
@@ -165,16 +213,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuIdioma.add(btnIngles);
 
         menuBar.add(menuIdioma);
-
-        menuFactura.setText("Factura");
-
-        btnCrearFactura.setText("Crear");
-        menuFactura.add(btnCrearFactura);
-
-        btnEliminarFactura.setText("Eliminar");
-        menuFactura.add(btnEliminarFactura);
-
-        menuBar.add(menuFactura);
 
         setJMenuBar(menuBar);
 
@@ -195,6 +233,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
        
     }//GEN-LAST:event_btnCrearClienteActionPerformed
+
+    private void btnIngresarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarCategoriaActionPerformed
+        if(vtnccat == null || !vtnccat.isVisible()){
+            vtnccat = new VentanaCrearCategoria(controladorCategoria);
+            vtnccat.setVisible(true);
+            desktopPane.add(vtnccat);
+        }
+    }//GEN-LAST:event_btnIngresarCategoriaActionPerformed
+
+    private void btnBuscarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCategoriaActionPerformed
+        /*if(vtnbcat == null || !vtnbcat.isVisible()){
+            vtnbcat = new VentanaBuscarCategoria(controladorCategoria);
+            vtnbcat.setVisible(true);
+            desktopPane.add(vtnbcat);
+        }*/
+    }//GEN-LAST:event_btnBuscarCategoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,6 +286,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnBuscarCategoria;
     private javax.swing.JMenuItem btnBuscarCliente;
     private javax.swing.JMenuItem btnBuscarEmpleado;
     private javax.swing.JMenuItem btnBuscarProducto;
@@ -239,15 +294,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnCrearEmpleado;
     private javax.swing.JMenuItem btnCrearFactura;
     private javax.swing.JMenuItem btnCrearProducto;
+    private javax.swing.JMenuItem btnEliminarCategoria;
     private javax.swing.JMenuItem btnEliminarCliente;
     private javax.swing.JMenuItem btnEliminarEmpleado;
     private javax.swing.JMenuItem btnEliminarFactura;
     private javax.swing.JMenuItem btnEliminarProducto;
     private javax.swing.JMenuItem btnEspañol;
     private javax.swing.JMenuItem btnIngles;
+    private javax.swing.JMenuItem btnIngresarCategoria;
+    private javax.swing.JMenuItem btnListarCategoria;
     private javax.swing.JMenuItem btnListarCliente;
     private javax.swing.JMenuItem btnListarEmpleado;
     private javax.swing.JMenuItem btnListarProducto;
+    private javax.swing.JMenuItem btnModificarCategoria;
     private javax.swing.JMenuItem btnModificarCliente;
     private javax.swing.JMenuItem btnModificarEmpleado;
     private javax.swing.JMenuItem btnModificarProducto;
