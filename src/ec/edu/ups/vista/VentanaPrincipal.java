@@ -121,6 +121,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuCategotia.setText("Categoria");
 
+        btnIngresarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CALCULAR.png"))); // NOI18N
         btnIngresarCategoria.setText("Ingresar");
         btnIngresarCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +130,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuCategotia.add(btnIngresarCategoria);
 
+        btnBuscarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         btnBuscarCategoria.setText("Buscar");
         btnBuscarCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +139,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuCategotia.add(btnBuscarCategoria);
 
+        btnModificarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
         btnModificarCategoria.setText("Modificar");
         btnModificarCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +148,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuCategotia.add(btnModificarCategoria);
 
+        btnListarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lista.png"))); // NOI18N
         btnListarCategoria.setText("Listar");
         btnListarCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +157,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuCategotia.add(btnListarCategoria);
 
+        btnEliminarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
         btnEliminarCategoria.setText("Eliminar");
         btnEliminarCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +170,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuProducto.setText("Producto");
 
+        btnCrearProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/crear.png"))); // NOI18N
         btnCrearProducto.setText("Crear");
         btnCrearProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +179,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuProducto.add(btnCrearProducto);
 
+        btnBuscarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         btnBuscarProducto.setText("Buscar");
         btnBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +188,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuProducto.add(btnBuscarProducto);
 
+        btnModificarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
         btnModificarProducto.setText("Modificar");
         btnModificarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +197,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuProducto.add(btnModificarProducto);
 
+        btnEliminarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
         btnEliminarProducto.setText("Eliminar");
         btnEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,6 +206,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuProducto.add(btnEliminarProducto);
 
+        btnListarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lista.png"))); // NOI18N
         btnListarProducto.setText("Listar");
         btnListarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,6 +221,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuCliente.setText("Cliente");
 
+        btnCrearCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/crear.png"))); // NOI18N
         btnCrearCliente.setText("Crear");
         btnCrearCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,15 +230,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuCliente.add(btnCrearCliente);
 
+        btnBuscarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         btnBuscarCliente.setText("Buscar");
         menuCliente.add(btnBuscarCliente);
 
+        btnModificarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
         btnModificarCliente.setText("Modificar");
         menuCliente.add(btnModificarCliente);
 
+        btnEliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
         btnEliminarCliente.setText("Eliminar");
         menuCliente.add(btnEliminarCliente);
 
+        btnListarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lista.png"))); // NOI18N
         btnListarCliente.setText("Listar");
         menuCliente.add(btnListarCliente);
 
@@ -235,6 +250,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuEmpleado.setText("Empleado");
 
+        btnCrearEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/crear.png"))); // NOI18N
         btnCrearEmpleado.setText("Crear");
         btnCrearEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,6 +259,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuEmpleado.add(btnCrearEmpleado);
 
+        btnBuscarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         btnBuscarEmpleado.setText("Buscar");
         btnBuscarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,6 +268,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuEmpleado.add(btnBuscarEmpleado);
 
+        btnModificarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
         btnModificarEmpleado.setText("Modificar");
         btnModificarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,6 +277,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuEmpleado.add(btnModificarEmpleado);
 
+        btnEliminarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
         btnEliminarEmpleado.setText("Eliminar");
         btnEliminarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,6 +286,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuEmpleado.add(btnEliminarEmpleado);
 
+        btnListarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lista.png"))); // NOI18N
         btnListarEmpleado.setText("Listar");
         btnListarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,6 +301,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuFactura.setText("Factura");
 
+        btnCrearFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/crear.png"))); // NOI18N
         btnCrearFactura.setText("Crear");
         btnCrearFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,6 +310,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuFactura.add(btnCrearFactura);
 
+        btnEliminarFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
         btnEliminarFactura.setText("Eliminar");
         btnEliminarFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,9 +323,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuIdioma.setText("Idioma");
 
+        btnEspañol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/idioma.png"))); // NOI18N
         btnEspañol.setText("Español");
         menuIdioma.add(btnEspañol);
 
+        btnIngles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/idioma.png"))); // NOI18N
         btnIngles.setText("Ingles");
         menuIdioma.add(btnIngles);
 
