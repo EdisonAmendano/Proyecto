@@ -5,17 +5,24 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCliente;
+import ec.edu.ups.modelo.Cliente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edison
  */
 public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
 
+    private ControladorCliente controladorcliente;
+    private Cliente cliente;
     /**
      * Creates new form VentanaBuscarCliente
      */
-    public VentanaBuscarCliente() {
+    public VentanaBuscarCliente(ControladorCliente controladorcliente) {
         initComponents();
+        this.controladorcliente= controladorcliente;
     }
 
     /**
@@ -45,6 +52,11 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         jLTelefono.setText("Telefono");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         txtCedula.setEditable(false);
 
@@ -61,6 +73,11 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         jLNombre.setText("Nombre");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,6 +139,29 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        int codigo = Integer.parseInt(txtCodigo.getText());
+        cliente = controladorcliente.read(codigo);
+
+        if (cliente != null) {
+            //txtCodigo.setText(String.valueOf(cliente.getCodigo())); //convierte un String en int
+            txtCedula.setText(cliente.getCedula());
+            txtNombre.setText(cliente.getNombre());
+            txtDireccion.setText(cliente.getDireccion());
+            txtTelefono.setText(cliente.getTelefono());
+        }else
+            JOptionPane.showMessageDialog(this, "Cliente no Existe", " Buscar Cliente", JOptionPane.OK_OPTION);
+
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
