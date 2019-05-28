@@ -7,6 +7,9 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCategoria;
 import ec.edu.ups.controlador.ControladorCliente;
+import ec.edu.ups.controlador.ControladorEmpleado;
+import ec.edu.ups.controlador.ControladorFactura;
+import ec.edu.ups.controlador.ControladorProducto;
 import ec.edu.ups.vista.categoria.VentanaBuscarCategoria;
 import ec.edu.ups.vista.categoria.VentanaBuscarCategoria;
 
@@ -18,11 +21,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaBuscarCategoria vtnbcat;
     private VentanaCrearCliente vcc; 
     private VentanaCrearCategoria vtnccat;
+    private VentanaCrearEmpleado vtnce;
+    private VentanaBuscarEmpleado vtnbe;
+    private VentanaEliminarEmpleado vtnee;
+    private VentanaModificarEmpleado vtnme;
+    private VentanaEliminarEmpleado vtnle;
+    private VentanaCrearProducto vtncp;
+    private VentanaBuscarProducto vtnbp;
+    private VentanaModificarProducto vtnmp;
+    private VentanaEliminarProducto vtnep;
+    private VentanaListarProducto vtnlp;
+    private ventanaCrearFactura vtncf;
+    private VentanaEliminarFactura vtnef;
     private VentanaListarCategoria vtnlcat;
     private VentanaModificarCategoria vtnmcat;
     private VentanaEliminarCategoria vtnecat;
     private ControladorCliente controladorCliente;
     private ControladorCategoria controladorCategoria;
+    private ControladorEmpleado controladorEmpleado;
+    private ControladorFactura controladorFactura;
+    private ControladorProducto controladorProducto;
     
     public VentanaPrincipal() {
         initComponents();
@@ -148,18 +166,43 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuProducto.setText("Producto");
 
         btnCrearProducto.setText("Crear");
+        btnCrearProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearProductoActionPerformed(evt);
+            }
+        });
         menuProducto.add(btnCrearProducto);
 
         btnBuscarProducto.setText("Buscar");
+        btnBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarProductoActionPerformed(evt);
+            }
+        });
         menuProducto.add(btnBuscarProducto);
 
         btnModificarProducto.setText("Modificar");
+        btnModificarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarProductoActionPerformed(evt);
+            }
+        });
         menuProducto.add(btnModificarProducto);
 
         btnEliminarProducto.setText("Eliminar");
+        btnEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarProductoActionPerformed(evt);
+            }
+        });
         menuProducto.add(btnEliminarProducto);
 
         btnListarProducto.setText("Listar");
+        btnListarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarProductoActionPerformed(evt);
+            }
+        });
         menuProducto.add(btnListarProducto);
 
         menuBar.add(menuProducto);
@@ -193,18 +236,43 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuEmpleado.setText("Empleado");
 
         btnCrearEmpleado.setText("Crear");
+        btnCrearEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearEmpleadoActionPerformed(evt);
+            }
+        });
         menuEmpleado.add(btnCrearEmpleado);
 
         btnBuscarEmpleado.setText("Buscar");
+        btnBuscarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarEmpleadoActionPerformed(evt);
+            }
+        });
         menuEmpleado.add(btnBuscarEmpleado);
 
         btnModificarEmpleado.setText("Modificar");
+        btnModificarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarEmpleadoActionPerformed(evt);
+            }
+        });
         menuEmpleado.add(btnModificarEmpleado);
 
         btnEliminarEmpleado.setText("Eliminar");
+        btnEliminarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarEmpleadoActionPerformed(evt);
+            }
+        });
         menuEmpleado.add(btnEliminarEmpleado);
 
         btnListarEmpleado.setText("Listar");
+        btnListarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarEmpleadoActionPerformed(evt);
+            }
+        });
         menuEmpleado.add(btnListarEmpleado);
 
         menuPersona.add(menuEmpleado);
@@ -214,9 +282,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuFactura.setText("Factura");
 
         btnCrearFactura.setText("Crear");
+        btnCrearFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearFacturaActionPerformed(evt);
+            }
+        });
         menuFactura.add(btnCrearFactura);
 
         btnEliminarFactura.setText("Eliminar");
+        btnEliminarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarFacturaActionPerformed(evt);
+            }
+        });
         menuFactura.add(btnEliminarFactura);
 
         menuBar.add(menuFactura);
@@ -290,6 +368,102 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             desktopPane.add(vtnecat);
         }
     }//GEN-LAST:event_btnEliminarCategoriaActionPerformed
+
+    private void btnCrearProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearProductoActionPerformed
+        if(vtncp == null || !vtncp.isVisible()){
+            vtncp = new VentanaCrearProducto(controladorProducto);
+            vtncp.setVisible(true);
+            desktopPane.add(vtncp);
+        }
+    }//GEN-LAST:event_btnCrearProductoActionPerformed
+
+    private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
+        if(vtnbp == null || !vtnbp.isVisible()){
+            vtnbp = new VentanaBuscarProducto(controladorProducto);
+            vtnbp.setVisible(true);
+            desktopPane.add(vtnbp);
+        }
+    }//GEN-LAST:event_btnBuscarProductoActionPerformed
+
+    private void btnModificarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProductoActionPerformed
+        if(vtnmp == null || !vtnmp.isVisible()){
+            vtnmp = new VentanaModificarProducto(controladorProducto);
+            vtnmp.setVisible(true);
+            desktopPane.add(vtnmp);
+        }
+    }//GEN-LAST:event_btnModificarProductoActionPerformed
+
+    private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
+        if(vtnep == null || !vtnep.isVisible()){
+            vtnep = new VentanaEliminarProducto(controladorProducto);
+            vtnep.setVisible(true);
+            desktopPane.add(vtnep);
+        }
+    }//GEN-LAST:event_btnEliminarProductoActionPerformed
+
+    private void btnListarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarProductoActionPerformed
+        if(vtnlp == null || !vtnlp.isVisible()){
+            vtnlp = new VentanaListarProducto(controladorProducto);
+            vtnlp.setVisible(true);
+            desktopPane.add(vtnlp);
+        }
+    }//GEN-LAST:event_btnListarProductoActionPerformed
+
+    private void btnCrearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearEmpleadoActionPerformed
+        if(vtnce == null || !vtnce.isVisible()){
+            vtnce = new VentanaCrearEmpleado(controladorEmpleado);
+            vtnce.setVisible(true);
+            desktopPane.add(vtnce);
+        }
+    }//GEN-LAST:event_btnCrearEmpleadoActionPerformed
+
+    private void btnBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEmpleadoActionPerformed
+        if(vtnbe == null || !vtnbe.isVisible()){
+            vtnbe = new VentanaBuscarEmpleado(controladorEmpleado);
+            vtnbe.setVisible(true);
+            desktopPane.add(vtnbe);
+        }
+    }//GEN-LAST:event_btnBuscarEmpleadoActionPerformed
+
+    private void btnModificarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarEmpleadoActionPerformed
+        if(vtnme == null || !vtnme.isVisible()){
+            vtnme = new VentanaModificarEmpleado(controladorEmpleado);
+            vtnme.setVisible(true);
+            desktopPane.add(vtnme);
+        }
+    }//GEN-LAST:event_btnModificarEmpleadoActionPerformed
+
+    private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
+        if(vtnee == null || !vtnee.isVisible()){
+            vtnee = new VentanaEliminarEmpleado(controladorEmpleado);
+            vtnee.setVisible(true);
+            desktopPane.add(vtnee);
+        }
+    }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
+
+    private void btnListarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEmpleadoActionPerformed
+        if(vtnle == null || !vtnle.isVisible()){
+            vtnle = new VentanaListarProducto(controladorEmpleado);
+            vtnle.setVisible(true);
+            desktopPane.add(vtnle);
+        }
+    }//GEN-LAST:event_btnListarEmpleadoActionPerformed
+
+    private void btnCrearFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearFacturaActionPerformed
+        if(vtncf == null || !vtncf.isVisible()){
+            vtncf = new ventanaCrearFactura(controladorFactura);
+            vtncf.setVisible(true);
+            desktopPane.add(vtncf);
+        }
+    }//GEN-LAST:event_btnCrearFacturaActionPerformed
+
+    private void btnEliminarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFacturaActionPerformed
+        if(vtnef == null || !vtnef.isVisible()){
+            vtnef = new VentanaEliminarFactura(controladorFactura);
+            vtnef.setVisible(true);
+            desktopPane.add(vtnef);
+        }
+    }//GEN-LAST:event_btnEliminarFacturaActionPerformed
 
     /**
      * @param args the command line arguments
