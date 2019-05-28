@@ -5,17 +5,26 @@
  */
 package ec.edu.ups.vista;
 
+
+import ec.edu.ups.controlador.ControladorCliente;
+import ec.edu.ups.modelo.Cliente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edison
  */
-public class VentanaCrearCliente extends javax.swing.JInternalFrame {
 
+public class VentanaCrearCliente extends javax.swing.JInternalFrame {
+    private ControladorCliente controladorcliente;
+    private Cliente cliente;
     /**
      * Creates new form VentanaCrearCliente
      */
-    public VentanaCrearCliente() {
+    public VentanaCrearCliente(ControladorCliente controladorcliente) {
         initComponents();
+        this.controladorcliente=controladorcliente;
+        txtCodigo.setText(String.valueOf(this.controladorcliente.getCodigo()+1));
     }
 
     /**
@@ -51,8 +60,18 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         jLTelefono.setText("Telefono");
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         txtCodigo.setEditable(false);
 
@@ -118,6 +137,30 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        cliente = new Cliente();
+        cliente.setCedula(txtCedula.getText());
+        cliente.setNombre(txtNombre.getText());
+        cliente.setDireccion(txtDireccion.getText());
+        cliente.setTelefono(txtTelefono.getText());
+        controladorcliente.create(cliente);
+        
+        JOptionPane.showMessageDialog(this, "Cliente creado corectamente", "Crear Clente",JOptionPane.OK_OPTION);
+        txtCodigo.setText(String.valueOf(this.controladorcliente.getCodigo()+1));//esto es para que el codigo se inicialice en 1 y no en 0 como esta en el controlador
+
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText(""); 
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

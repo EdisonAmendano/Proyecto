@@ -5,17 +5,25 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCliente;
+import ec.edu.ups.modelo.Cliente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edison
  */
 public class VentanaModificarClienta extends javax.swing.JInternalFrame {
 
+    private ControladorCliente controladorcliente;
+    private Cliente cliente;
+    private int codigoModificar;
     /**
      * Creates new form VentanaModificarClienta
      */
-    public VentanaModificarClienta() {
+    public VentanaModificarClienta(ControladorCliente controladorcliente) {
         initComponents();
+        this.controladorcliente=controladorcliente;
     }
 
     /**
@@ -44,8 +52,18 @@ public class VentanaModificarClienta extends javax.swing.JInternalFrame {
         jLTelefono.setText("Telefono");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         txtCedula.setEditable(false);
 
@@ -65,6 +83,11 @@ public class VentanaModificarClienta extends javax.swing.JInternalFrame {
 
         btnGuardar.setText("Guardar");
         btnGuardar.setEnabled(false);
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,6 +156,59 @@ public class VentanaModificarClienta extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        
+        int codigo = Integer.parseInt(txtCodigo.getText());
+        cliente = controladorcliente.read(codigo);
+          
+        if (cliente!=null){
+        txtCodigo.setText(String.valueOf(cliente.getCodigo())); //convierte un int a String solo para la visuañizacion.
+        txtCedula.setText(cliente.getCedula());
+        codigoModificar= Integer.parseInt(txtCodigo.getText());
+        txtNombre.setText(cliente.getNombre());
+        txtDireccion.setText(cliente.getDireccion());
+        txtTelefono.setText(cliente.getTelefono());
+        txtNombre.setEditable(true);
+        txtCedula.setEditable(true);
+        txtDireccion.setEditable(true);
+        txtTelefono.setEditable(true);
+        btnGuardar.setEnabled(true);
+         } else {
+            JOptionPane.showMessageDialog(this, "No se encontro el Cliente", "Buscar Cliente", JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        
+        cliente.setCodigo(codigoModificar);
+        cliente.setCedula(txtCedula.getText());
+        cliente.setNombre(txtNombre.getText());
+        cliente.setDireccion(txtDireccion.getText());
+        cliente.setTelefono(txtTelefono.getText());
+        controladorcliente.update(cliente);
+        
+       
+        JOptionPane.showMessageDialog(this, " Los Datos sean modificado correctamente", "Ventana Actualizar", JOptionPane.OK_OPTION);
+        txtNombre.setEditable(false);
+        txtCedula.setEditable(false);
+        txtDireccion.setEditable(false);
+        txtTelefono.setEditable(false);
+        btnGuardar.setEnabled(false);
+        txtCodigo.setText("");
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

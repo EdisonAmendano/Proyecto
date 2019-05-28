@@ -5,17 +5,25 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorEmpleado;
+import ec.edu.ups.modelo.Empleado;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edison
  */
 public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
 
+     private ControladorEmpleado controladorEmpleado;
+    private Empleado empleado;
+    private int codigoModificar;
     /**
      * Creates new form VentanaModificarEmpleado
      */
-    public VentanaModificarEmpleado() {
+    public VentanaModificarEmpleado(ControladorEmpleado controladorEmpleado) {
         initComponents();
+        this.controladorEmpleado=controladorEmpleado;
     }
 
     /**
@@ -74,6 +82,11 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
         jLTelefono.setText("Telefono");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnGuardar.setText("Guardar");
         btnGuardar.setEnabled(false);
@@ -154,6 +167,29 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        
+         int codigo = Integer.parseInt(txtCodigo.getText());
+        empleado = controladorEmpleado.read(codigo);
+          
+        if (empleado!=null){
+        txtCodigo.setText(String.valueOf(empleado.getCodigo())); //convierte un int a String solo para la visuañizacion.
+        txtCedula.setText(empleado.getCedula());
+        codigoModificar= Integer.parseInt(txtCodigo.getText());
+        txtNombre.setText(empleado.getNombre());
+        txtDireccion.setText(empleado.getDireccion());
+        txtTelefono.setText(empleado.getTelefono());
+        txtNombre.setEditable(true);
+        txtCedula.setEditable(true);
+        txtDireccion.setEditable(true);
+        txtTelefono.setEditable(true);
+        btnGuardar.setEnabled(true);
+         } else {
+            JOptionPane.showMessageDialog(this, "No se encontro el Cliente", "Buscar Cliente", JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,17 +5,25 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCliente;
+import ec.edu.ups.modelo.Cliente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edison
  */
 public class VentanaEliminarCliente extends javax.swing.JInternalFrame {
 
+    private ControladorCliente controladorCliente;
+    private Cliente cliente;
+    private int codigoEliminar;
     /**
      * Creates new form VentanaEliminarCliente
      */
-    public VentanaEliminarCliente() {
+    public VentanaEliminarCliente(ControladorCliente controladorCliente) {
         initComponents();
+        this.controladorCliente=controladorCliente;
     }
 
     /**
@@ -54,11 +62,26 @@ public class VentanaEliminarCliente extends javax.swing.JInternalFrame {
         jLNombre.setText("Nombre");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setEnabled(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         txtCedula.setEditable(false);
 
@@ -133,6 +156,46 @@ public class VentanaEliminarCliente extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        
+        //int codigo = Integer.parseInt(txtCodigo.getText());
+        
+        cliente = controladorCliente.read(Integer.parseInt(txtCodigo.getText()));
+        
+        if (cliente != null) {
+        txtCedula.setText(cliente.getCedula());
+        txtNombre.setText(cliente.getNombre());
+        codigoEliminar= Integer.parseInt(txtCodigo.getText());
+        txtDireccion.setText(cliente.getDireccion());
+        txtTelefono.setText(cliente.getTelefono());
+        btnEliminar.setEnabled(true);
+         }else{
+            JOptionPane.showMessageDialog(this, "No se encontro el Cliente", "Buscar Cliente", JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        
+         cliente.setCodigo(codigoEliminar);
+         controladorCliente.delet(cliente.getCodigo());
+        
+        JOptionPane.showMessageDialog(this, "Datos eliminados correctamente", "Ventana Eliminar Cliente", JOptionPane.OK_OPTION);
+        btnEliminar.setEnabled(false);
+        txtCodigo.setText("");
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

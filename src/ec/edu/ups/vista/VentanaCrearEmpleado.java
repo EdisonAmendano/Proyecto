@@ -4,18 +4,24 @@
  * and open the template in the editor.
  */
 package ec.edu.ups.vista;
-
+import ec.edu.ups.controlador.ControladorEmpleado ;
+import ec.edu.ups.modelo.Cliente;
+import ec.edu.ups.modelo.Empleado;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Edison
  */
 public class VentanaCrearEmpleado extends javax.swing.JInternalFrame {
-
+    private ControladorEmpleado controladorEmpleado;
+    private Empleado empleado;
     /**
      * Creates new form VentanaCrearEmpleado
      */
-    public VentanaCrearEmpleado() {
+    public VentanaCrearEmpleado(ControladorEmpleado controladorEmpleado) {
         initComponents();
+        this.controladorEmpleado=controladorEmpleado;
+        txtCodigo.setText(String.valueOf(this.controladorEmpleado.getCodigo()+1));
     }
 
     /**
@@ -49,8 +55,18 @@ public class VentanaCrearEmpleado extends javax.swing.JInternalFrame {
         jLTelefono.setText("Telefono");
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         txtCodigo.setEditable(false);
 
@@ -136,6 +152,33 @@ public class VentanaCrearEmpleado extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        empleado = new Empleado();
+        empleado.setCedula(txtCedula.getText());
+        empleado.setNombre(txtNombre.getText());
+        empleado.setDireccion(txtDireccion.getText());
+        empleado.setTelefono(txtTelefono.getText());
+        empleado.setTelefono(txtPuesto.getText());
+        empleado.setTelefono(txtSalario.getText());
+        controladorEmpleado.create(empleado);
+        
+        JOptionPane.showMessageDialog(this, "Empleado creado corectamente", "Crear Clente",JOptionPane.OK_OPTION);
+        txtCodigo.setText(String.valueOf(this.controladorEmpleado.getCodigo()+1));//esto es para que el codigo se inicialice en 1 y no en 0 como esta en el controlador
+
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText(""); 
+        txtPuesto.setText(""); 
+        txtSalario.setText(""); 
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,17 +5,24 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorEmpleado;
+import ec.edu.ups.modelo.Empleado;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edison
  */
 public class VentanaBuscarEmpleado extends javax.swing.JInternalFrame {
 
+    private ControladorEmpleado controladorEmpleado;
+    private Empleado empleado;
     /**
      * Creates new form VentanaBuscarProducto
      */
-    public VentanaBuscarEmpleado() {
+    public VentanaBuscarEmpleado(ControladorEmpleado controladorEmpleado) {
         initComponents();
+        this.controladorEmpleado= controladorEmpleado;
     }
 
     /**
@@ -49,6 +56,11 @@ public class VentanaBuscarEmpleado extends javax.swing.JInternalFrame {
         jLSalario.setText("Salario");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         txtPuesto.setEditable(false);
 
@@ -73,6 +85,11 @@ public class VentanaBuscarEmpleado extends javax.swing.JInternalFrame {
         jLTelefono.setText("Telefono");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,6 +163,29 @@ public class VentanaBuscarEmpleado extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        
+        int codigo = Integer.parseInt(txtCodigo.getText());
+        empleado = controladorEmpleado.read(codigo);
+
+        if (empleado != null) {
+            //txtCodigo.setText(String.valueOf(cliente.getCodigo())); //convierte un String en int
+            txtCedula.setText(empleado.getCedula());
+            txtNombre.setText(empleado.getNombre());
+            txtDireccion.setText(empleado.getDireccion());
+            txtTelefono.setText(empleado.getTelefono());
+            txtPuesto.setText(empleado.getPuesto());
+            txtSalario.setText(String.valueOf(empleado.getSalario()));
+        }else
+            JOptionPane.showMessageDialog(this, "Empleado no Existe", " Buscar Cliente", JOptionPane.OK_OPTION);
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,19 +5,58 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCliente;
+import ec.edu.ups.modelo.Cliente;
+import java.util.Set;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Edison
  */
 public class VentanaListarCliente extends javax.swing.JInternalFrame {
 
+    private ControladorCliente controladorcliente;
+    public static DefaultTableModel modelo;
     /**
      * Creates new form VentanaListarCliente
      */
-    public VentanaListarCliente() {
+    public VentanaListarCliente(ControladorCliente controladorcliente) {
         initComponents();
+        this.controladorcliente = controladorcliente;
+        llenarDatos();
     }
 
+    
+    public void llenarDatos() {
+
+        /**
+         * aqui se obtiene el modelo
+         */
+       
+       modelo = (DefaultTableModel) tablaCliente.getModel();
+       
+        // Se obtiene la lista de controladorCliente 
+        // Es un arreglo de un objeto
+        Set<Cliente> Lista = controladorcliente.getLista();
+        if (Lista != null) {
+            for (Cliente cliente : Lista) {
+                //object[] datos= new Object[5]; 
+                // separo por comas
+                Object[] datos = {cliente.getCodigo(),
+                    cliente.getNombre(),
+                    cliente.getCedula(),
+                    cliente.getDireccion(),
+                    cliente.getTelefono()};
+                //Añade el modelo 
+                //Por cada iteracion se añade una fila 
+                modelo.addRow(datos);
+
+            }
+        }else{
+                System.out.println("");
+        }  
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,9 +67,9 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         table = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaCliente = new javax.swing.JTable();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -46,7 +85,7 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        table.setViewportView(jTable1);
+        table.setViewportView(tablaCliente);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,7 +105,7 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaCliente;
     private javax.swing.JScrollPane table;
     // End of variables declaration//GEN-END:variables
 }
