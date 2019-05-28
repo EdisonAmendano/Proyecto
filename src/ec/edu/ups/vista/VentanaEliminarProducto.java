@@ -5,17 +5,24 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorProducto;
+import ec.edu.ups.modelo.Producto;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edison
  */
 public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
+    private ControladorProducto controladorProducto;
+    private Producto producto;
 
     /**
      * Creates new form VentanaEliminarProducto
      */
-    public VentanaEliminarProducto() {
+    public VentanaEliminarProducto(ControladorProducto controladorProducto) {
         initComponents();
+        this.controladorProducto=controladorProducto;
     }
 
     /**
@@ -35,14 +42,19 @@ public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
         txtPrecio = new javax.swing.JTextField();
         txtStock = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLCategoria = new javax.swing.JLabel();
         txtCategoria = new javax.swing.JTextField();
         txtCodigo = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
-        btnBuscar.setText("buscar");
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         jLCodigo.setText("Codigo");
 
@@ -58,7 +70,7 @@ public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Nombre");
 
-        jTextField1.setEditable(false);
+        txtNombre.setEditable(false);
 
         jLCategoria.setText("Categoria");
 
@@ -77,7 +89,7 @@ public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
                             .addComponent(jLabel1))
                         .addGap(60, 60, 60)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1)
+                            .addComponent(txtNombre)
                             .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,7 +107,7 @@ public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLPrecio)
@@ -113,6 +125,11 @@ public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setEnabled(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -146,9 +163,9 @@ public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
                     .addComponent(jLCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar)
                     .addComponent(btnCancelar))
@@ -157,6 +174,30 @@ public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        int codigo = Integer.parseInt(txtCodigo.getText());
+        Producto prod = controladorProducto.read(codigo);
+        
+       txtCodigo.setText(String.valueOf(prod.getCodigo()));
+       txtNombre.setText(prod.getNombre());
+       txtPrecio.setText(String.valueOf(prod.getPrecio()));
+       txtStock.setText(String.valueOf(prod.getStock()));
+       txtCategoria.setText(String.valueOf(prod.getCategoria()));
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        int codigo = (Integer.parseInt(txtCodigo.getText()));
+        controladorProducto.delet(codigo);
+        JOptionPane.showMessageDialog(this, "Datos eliminados correctamente", "Ventana Eliminar Producto", JOptionPane.OK_OPTION);
+        txtCodigo.setText("");
+        txtNombre.setText("");
+        txtPrecio.setText("");
+        txtStock.setText("");
+        txtCategoria.setText("");
+        
+        txtCodigo.requestFocus();
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -169,9 +210,9 @@ public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLSock;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtStock;
     // End of variables declaration//GEN-END:variables

@@ -21,6 +21,14 @@ public class ControladorProducto {
         lista = new HashSet<>();
         codigo = 0;
     }
+
+    public void setLista(Set<Producto> lista) {
+        this.lista = lista;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
     
     public void create(Producto objeto) {
         codigo++;
@@ -71,4 +79,6 @@ public class ControladorProducto {
     public Set<Producto> getLista() {
         return lista;
     }
+    
+    
 }

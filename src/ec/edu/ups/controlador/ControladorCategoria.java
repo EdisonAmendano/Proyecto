@@ -19,13 +19,22 @@ public class ControladorCategoria {
 
     public ControladorCategoria() {
         lista = new HashSet<>();
-        codigo = 0;
+        codigo = 1;
     }
     
+    public int getCodigo(){
+        return codigo;
+    }
+
+    public Set<Categoria> getLista() {
+        return lista;
+    }
+    
+    //Crea el objeto y añade a la lista 
     public void create(Categoria objeto) {
-        codigo++;
         objeto.setCodigo(codigo);
         lista.add(objeto);
+        codigo++;
     }
     // Leer el objeto tipo Ave
     public Categoria read(int codigo) {
@@ -64,11 +73,4 @@ public class ControladorCategoria {
         }
     }
     
-    public int getCodigo(){
-        return codigo;
-    }
-
-    public Set<Categoria> getLista() {
-        return lista;
-    }
 }

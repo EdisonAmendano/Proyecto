@@ -3,42 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.ups.vista;
-
-import ec.edu.ups.controlador.ControladorProducto;
-import ec.edu.ups.modelo.Cliente;
-import ec.edu.ups.modelo.Producto;
-import java.util.Set;
-import javax.swing.table.DefaultTableModel;
+package ec.edu.ups.vista.categoria;
 
 /**
  *
  * @author Edison
  */
-public class VentanaListarProducto extends javax.swing.JInternalFrame {
-    private ControladorProducto controladorProducto;
+public class VentanaListarCategoria extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form VentanaListarProducto
+     * Creates new form VentanaListarCategoria
      */
-    public VentanaListarProducto(ControladorProducto controladorProducto) {
+    public VentanaListarCategoria() {
         initComponents();
-        this.controladorProducto=controladorProducto;
-    }
-    
-    public void llenarDatos(){
-        DefaultTableModel modleo = (DefaultTableModel) table.getModel();
-        Set<Producto> lista = controladorProducto.getLista();
-        for (Producto prod : lista) {
-            // Object[] datos = new Object[5]; //forma 1
-            Object[] datos = {prod.getCodigo(), // forma 2 
-                
-                prod.getNombre(),
-                prod.getCategoria(),
-                prod.getPrecio(),
-                prod.getStock() };
-            modleo.addRow(datos);
-        }
     }
 
     /**
@@ -53,15 +30,12 @@ public class VentanaListarProducto extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
 
-        setClosable(true);
-        setTitle("Ventana Lista Producto");
-
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "Nombre", "Categoria", "Precio", "Stock"
+                "Codigo", "Nombre", "Descripcion"
             }
         ));
         jScrollPane1.setViewportView(table);
@@ -70,7 +44,7 @@ public class VentanaListarProducto extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
