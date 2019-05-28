@@ -5,17 +5,19 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCategoria;
+import ec.edu.ups.modelo.Categoria;
+
 /**
  *
  * @author Edison
  */
 public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form VentanaCrearCategoria
-     */
-    public VentanaCrearCategoria() {
+    
+    private ControladorCategoria controladorCategoria;
+    public VentanaCrearCategoria(ControladorCategoria controladorCategoria) {
         initComponents();
+        this.controladorCategoria = controladorCategoria;
     }
 
     /**
@@ -45,6 +47,11 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
         Descripcion.setText("Decripcion");
 
         btnGuaradr.setText("Guardar");
+        btnGuaradr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuaradrActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -105,6 +112,15 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuaradrActionPerformed
+        Categoria categoria = new Categoria();
+        categoria.setCodigo(Integer.parseInt(txtCodigo.getText()));
+        categoria.setDescricpcion(txtDecripcion.getText());
+        categoria.setNombre(txtNombre.getText());
+        controladorCategoria.create(categoria);
+        
+    }//GEN-LAST:event_btnGuaradrActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -6,10 +6,9 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCategoria;
-import ec.edu.ups.vista.cliente.VentanaCrearCliente;
 import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.vista.categoria.VentanaBuscarCategoria;
-import ec.edu.ups.vista.categoria.VentanaCrearCategoria;
+import ec.edu.ups.vista.categoria.VentanaBuscarCategoria;
 
 /**
  *
