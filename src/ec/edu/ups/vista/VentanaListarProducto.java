@@ -5,6 +5,7 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorEmpleado;
 import ec.edu.ups.controlador.ControladorProducto;
 import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Producto;
@@ -24,6 +25,10 @@ public class VentanaListarProducto extends javax.swing.JInternalFrame {
     public VentanaListarProducto(ControladorProducto controladorProducto) {
         initComponents();
         this.controladorProducto=controladorProducto;
+    }
+
+    VentanaListarProducto(ControladorEmpleado controladorEmpleado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public void llenarDatos(){

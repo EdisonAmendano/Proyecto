@@ -5,6 +5,8 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorFactura;
+
 /**
  *
  * @author Edison
@@ -14,8 +16,11 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
     /**
      * Creates new form ventanaCrearFactura
      */
-    public ventanaCrearFactura() {
+    private ControladorFactura controladorFactura;
+    
+    public ventanaCrearFactura(ControladorFactura controladorFactura) {
         initComponents();
+        this.controladorFactura=controladorFactura;
     }
 
     /**
