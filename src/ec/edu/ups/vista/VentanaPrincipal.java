@@ -12,7 +12,7 @@ import ec.edu.ups.vista.categoria.VentanaBuscarCategoria;
 
 /**
  *
- * @author Edison
+ * @author Edison/fccvmhvhjv
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaBuscarCategoria vtnbcat;
