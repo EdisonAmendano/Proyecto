@@ -5,6 +5,10 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCategoria;
+import ec.edu.ups.modelo.Categoria;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edison
@@ -14,8 +18,12 @@ public class VentanaModificarCategoria extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaModificarCategoria
      */
-    public VentanaModificarCategoria() {
+    private ControladorCategoria controladorCategoria;
+    private int vcodigo;
+
+    public VentanaModificarCategoria(ControladorCategoria controladorCategoria) {
         initComponents();
+        this.controladorCategoria = controladorCategoria;
     }
 
     /**
@@ -48,13 +56,28 @@ public class VentanaModificarCategoria extends javax.swing.JInternalFrame {
         txtDecripcion.setEditable(false);
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Codigo");
 
         btnGuardar.setText("Guargar");
         btnGuardar.setEnabled(false);
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,6 +136,39 @@ public class VentanaModificarCategoria extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        Categoria categoria = controladorCategoria.read(Integer.parseInt(txtCodigo.getText()));
+        if (categoria != null) {
+            txtNombre.setText(categoria.getNombre());
+            txtDecripcion.setText(categoria.getDescricpcion());
+            btnGuardar.setEnabled(true);
+            vcodigo = Integer.parseInt(txtCodigo.getText());
+            txtNombre.setEditable(true);
+            txtDecripcion.setEditable(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontro la categoria", "Buscar Categiria", JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        Categoria categoria = new Categoria();
+        categoria.setCodigo(vcodigo);
+        categoria.setNombre(txtNombre.getText());
+        categoria.setDescricpcion(txtDecripcion.getText());
+        controladorCategoria.update(categoria);
+        JOptionPane.showMessageDialog(this, "Se a modificado la categoia", "Modificar Categoria", JOptionPane.OK_OPTION);
+        btnGuardar.setEnabled(false);
+        txtCodigo.setText("");
+        txtNombre.setText("");
+        txtDecripcion.setText("");
+        txtNombre.setEditable(true);
+        txtDecripcion.setEditable(true);
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

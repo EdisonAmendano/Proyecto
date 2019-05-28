@@ -5,6 +5,10 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCategoria;
+import ec.edu.ups.modelo.Categoria;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edison
@@ -14,8 +18,11 @@ public class VentanaEliminarCategoria extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaEliminarCategoria
      */
-    public VentanaEliminarCategoria() {
+    private ControladorCategoria controladorCategoria;
+    private int codigo;
+    public VentanaEliminarCategoria(ControladorCategoria controladorCategoria) {
         initComponents();
+        this.controladorCategoria = controladorCategoria;
     }
 
     /**
@@ -44,13 +51,28 @@ public class VentanaEliminarCategoria extends javax.swing.JInternalFrame {
         txtDecripcion.setEditable(false);
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Codigo");
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setEnabled(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         txtCodigo.setToolTipText("");
 
@@ -113,6 +135,31 @@ public class VentanaEliminarCategoria extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        Categoria categoria = controladorCategoria.read(Integer.parseInt(txtCodigo.getText()));
+        if (categoria != null) {
+            txtNombre.setText(categoria.getNombre());
+            txtDecripcion.setText(categoria.getDescricpcion());
+            codigo = Integer.parseInt(txtCodigo.getText());
+            btnEliminar.setEnabled(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "No se encontro la categoria", "Buscar Categiria", JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        controladorCategoria.delet(codigo);
+        JOptionPane.showMessageDialog(this, "Se elimino la categria", "Eliminar categoria", JOptionPane.OK_OPTION);
+        txtNombre.setText("");
+        txtDecripcion.setText("");
+        txtCodigo.setText("");
+        btnEliminar.setEnabled(false);
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -18,6 +18,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaBuscarCategoria vtnbcat;
     private VentanaCrearCliente vcc; 
     private VentanaCrearCategoria vtnccat;
+    private VentanaListarCategoria vtnlcat;
+    private VentanaModificarCategoria vtnmcat;
+    private VentanaEliminarCategoria vtnecat;
     private ControladorCliente controladorCliente;
     private ControladorCategoria controladorCategoria;
     
@@ -117,12 +120,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuCategotia.add(btnBuscarCategoria);
 
         btnModificarCategoria.setText("Modificar");
+        btnModificarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarCategoriaActionPerformed(evt);
+            }
+        });
         menuCategotia.add(btnModificarCategoria);
 
         btnListarCategoria.setText("Listar");
+        btnListarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarCategoriaActionPerformed(evt);
+            }
+        });
         menuCategotia.add(btnListarCategoria);
 
         btnEliminarCategoria.setText("Eliminar");
+        btnEliminarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarCategoriaActionPerformed(evt);
+            }
+        });
         menuCategotia.add(btnEliminarCategoria);
 
         menuBar.add(menuCategotia);
@@ -242,12 +260,36 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarCategoriaActionPerformed
 
     private void btnBuscarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCategoriaActionPerformed
-        /*if(vtnbcat == null || !vtnbcat.isVisible()){
+        if(vtnbcat == null || !vtnbcat.isVisible()){
             vtnbcat = new VentanaBuscarCategoria(controladorCategoria);
             vtnbcat.setVisible(true);
             desktopPane.add(vtnbcat);
-        }*/
+        }
     }//GEN-LAST:event_btnBuscarCategoriaActionPerformed
+
+    private void btnModificarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCategoriaActionPerformed
+        if(vtnmcat == null || !vtnmcat.isVisible()){
+            vtnmcat = new VentanaModificarCategoria(controladorCategoria);
+            vtnmcat.setVisible(true);
+            desktopPane.add(vtnmcat);
+        }
+    }//GEN-LAST:event_btnModificarCategoriaActionPerformed
+
+    private void btnListarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarCategoriaActionPerformed
+        if(vtnlcat == null || !vtnlcat.isVisible()){
+            vtnlcat = new VentanaListarCategoria(controladorCategoria);
+            vtnlcat.setVisible(true);
+            desktopPane.add(vtnlcat);
+        }
+    }//GEN-LAST:event_btnListarCategoriaActionPerformed
+
+    private void btnEliminarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCategoriaActionPerformed
+       if(vtnecat == null || !vtnecat.isVisible()){
+            vtnecat = new VentanaEliminarCategoria(controladorCategoria);
+            vtnecat.setVisible(true);
+            desktopPane.add(vtnecat);
+        }
+    }//GEN-LAST:event_btnEliminarCategoriaActionPerformed
 
     /**
      * @param args the command line arguments

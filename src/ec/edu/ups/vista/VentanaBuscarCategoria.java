@@ -5,6 +5,10 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCategoria;
+import ec.edu.ups.modelo.Categoria;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edison
@@ -14,8 +18,11 @@ public class VentanaBuscarCategoria extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaBuscarCategoria
      */
-    public VentanaBuscarCategoria() {
+    ControladorCategoria controladorCategoria;
+
+    public VentanaBuscarCategoria(ControladorCategoria controladorCategoria) {
         initComponents();
+        this.controladorCategoria = controladorCategoria;
     }
 
     /**
@@ -51,6 +58,11 @@ public class VentanaBuscarCategoria extends javax.swing.JInternalFrame {
         btnCancelar.setText("Cancelar");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,6 +117,17 @@ public class VentanaBuscarCategoria extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        Categoria categoria = controladorCategoria.read(Integer.parseInt(txtCodigo.getText()));
+        if (categoria != null) {
+            txtNombre.setText(categoria.getNombre());
+            txtDecripcion.setText(categoria.getDescricpcion());
+        }else{
+            JOptionPane.showMessageDialog(this, "No se encontro la categoria", "Buscar Categiria", JOptionPane.OK_OPTION);
+        }
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

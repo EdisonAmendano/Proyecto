@@ -7,6 +7,7 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCategoria;
 import ec.edu.ups.modelo.Categoria;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +19,7 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
     public VentanaCrearCategoria(ControladorCategoria controladorCategoria) {
         initComponents();
         this.controladorCategoria = controladorCategoria;
+        txtCodigo.setText(String.valueOf(controladorCategoria.getCodigo()+1));
     }
 
     /**
@@ -54,6 +56,11 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,12 +122,19 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
 
     private void btnGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuaradrActionPerformed
         Categoria categoria = new Categoria();
-        categoria.setCodigo(Integer.parseInt(txtCodigo.getText()));
         categoria.setDescricpcion(txtDecripcion.getText());
         categoria.setNombre(txtNombre.getText());
         controladorCategoria.create(categoria);
+        JOptionPane.showMessageDialog(this, "Categoria Creada", "Cracion de Categoria", JOptionPane.OK_OPTION);
+        txtCodigo.setText(String.valueOf(controladorCategoria.getCodigo()+1));
+        txtDecripcion.setText("");
+        txtNombre.setText("");
         
     }//GEN-LAST:event_btnGuaradrActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
