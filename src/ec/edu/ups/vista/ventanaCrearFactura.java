@@ -125,7 +125,7 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
 
         txtEmpleado.setEditable(false);
         txtEmpleado.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 180, -1));
+        getContentPane().add(txtEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 180, -1));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -242,7 +242,7 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
         getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/taller2.jpg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 475, 580));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -266,11 +266,7 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
