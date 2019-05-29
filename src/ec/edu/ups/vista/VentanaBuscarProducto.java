@@ -175,7 +175,7 @@ public class VentanaBuscarProducto extends javax.swing.JInternalFrame {
        txtnombre.setText(prod.getNombre());
        txtPrecio.setText(String.valueOf(prod.getPrecio()));
        txtStock.setText(String.valueOf(prod.getStock()));
-       txtCategoria.setText(String.valueOf(prod.getCategoria()));
+       txtCategoria.setText(prod.getCategoria().getNombre());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

@@ -14,15 +14,17 @@ import javax.swing.JOptionPane;
  * @author Edison
  */
 public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
+
     private ControladorProducto controladorProducto;
     private Producto producto;
+    private int codigo;
 
     /**
      * Creates new form VentanaEliminarProducto
      */
     public VentanaEliminarProducto(ControladorProducto controladorProducto) {
         initComponents();
-        this.controladorProducto=controladorProducto;
+        this.controladorProducto = controladorProducto;
     }
 
     /**
@@ -132,6 +134,11 @@ public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,26 +185,35 @@ public class VentanaEliminarProducto extends javax.swing.JInternalFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         int codigo = Integer.parseInt(txtCodigo.getText());
         Producto prod = controladorProducto.read(codigo);
-        
-       txtCodigo.setText(String.valueOf(prod.getCodigo()));
-       txtNombre.setText(prod.getNombre());
-       txtPrecio.setText(String.valueOf(prod.getPrecio()));
-       txtStock.setText(String.valueOf(prod.getStock()));
-       txtCategoria.setText(String.valueOf(prod.getCategoria()));
+        if (prod != null) {
+            this.codigo = Integer.parseInt(txtCodigo.getText());
+            txtCodigo.setText(String.valueOf(prod.getCodigo()));
+            txtNombre.setText(prod.getNombre());
+            txtPrecio.setText(String.valueOf(prod.getPrecio()));
+            txtStock.setText(String.valueOf(prod.getStock()));
+            txtCategoria.setText(prod.getCategoria().getNombre());
+            btnEliminar.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "No existe es producto", "buscar Producto", JOptionPane.OK_OPTION);
+        }
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int codigo = (Integer.parseInt(txtCodigo.getText()));
-        controladorProducto.delet(codigo);
+        controladorProducto.delet(this.codigo);
         JOptionPane.showMessageDialog(this, "Datos eliminados correctamente", "Ventana Eliminar Producto", JOptionPane.OK_OPTION);
         txtCodigo.setText("");
         txtNombre.setText("");
         txtPrecio.setText("");
         txtStock.setText("");
         txtCategoria.setText("");
-        
+        btnEliminar.setEnabled(false);
         txtCodigo.requestFocus();
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -160,8 +160,8 @@ public class VentanaCrearEmpleado extends javax.swing.JInternalFrame {
         empleado.setNombre(txtNombre.getText());
         empleado.setDireccion(txtDireccion.getText());
         empleado.setTelefono(txtTelefono.getText());
-        empleado.setTelefono(txtPuesto.getText());
-        empleado.setTelefono(txtSalario.getText());
+        empleado.setPuesto(txtPuesto.getText());
+        empleado.setSalario(Double.parseDouble(txtSalario.getText()));
         controladorEmpleado.create(empleado);
         
         JOptionPane.showMessageDialog(this, "Empleado creado corectamente", "Crear Clente",JOptionPane.OK_OPTION);

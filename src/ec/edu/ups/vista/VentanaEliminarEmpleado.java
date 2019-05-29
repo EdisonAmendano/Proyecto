@@ -5,6 +5,10 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorEmpleado;
+import ec.edu.ups.modelo.Empleado;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edison
@@ -14,8 +18,12 @@ public class VentanaEliminarEmpleado extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaEliminarEmpleado
      */
-    public VentanaEliminarEmpleado() {
+    private ControladorEmpleado controladorEmpleado;
+    private int codigo;
+
+    public VentanaEliminarEmpleado(ControladorEmpleado controladorEmpleado) {
         initComponents();
+        this.controladorEmpleado = controladorEmpleado;
     }
 
     /**
@@ -54,6 +62,11 @@ public class VentanaEliminarEmpleado extends javax.swing.JInternalFrame {
         jLDireccion.setText("Direccion");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         txtSalario.setEditable(false);
 
@@ -70,11 +83,21 @@ public class VentanaEliminarEmpleado extends javax.swing.JInternalFrame {
         txtDireccion.setEditable(false);
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         txtTelefono.setEditable(false);
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setEnabled(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         jLPuesto.setText("Puesto");
 
@@ -154,6 +177,41 @@ public class VentanaEliminarEmpleado extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        int codigo = Integer.parseInt(txtCodigo.getText());
+        Empleado empleado = controladorEmpleado.read(codigo);
+
+        if (empleado != null) {
+            this.codigo = Integer.parseInt(txtCodigo.getText());
+            txtCedula.setText(empleado.getCedula());
+            txtNombre.setText(empleado.getNombre());
+            txtDireccion.setText(empleado.getDireccion());
+            txtTelefono.setText(empleado.getTelefono());
+            txtPuesto.setText(empleado.getPuesto());
+            txtSalario.setText(String.valueOf(empleado.getSalario()));
+            btnEliminar.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Empleado no Existe", " Buscar Cliente", JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        controladorEmpleado.delet(codigo);
+        JOptionPane.showMessageDialog(this, "Se a eliminado correctamente el empleado", "Eliminar empleado", JOptionPane.OK_OPTION);
+        txtCodigo.setText("");
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+        txtPuesto.setText("");
+        txtSalario.setText("");
+        btnEliminar.setEnabled(false);
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

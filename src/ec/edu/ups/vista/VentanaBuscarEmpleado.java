@@ -178,8 +178,10 @@ public class VentanaBuscarEmpleado extends javax.swing.JInternalFrame {
             txtTelefono.setText(empleado.getTelefono());
             txtPuesto.setText(empleado.getPuesto());
             txtSalario.setText(String.valueOf(empleado.getSalario()));
-        }else
+        }else{
             JOptionPane.showMessageDialog(this, "Empleado no Existe", " Buscar Cliente", JOptionPane.OK_OPTION);
+        }
+            
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

@@ -10,6 +10,7 @@ import ec.edu.ups.controlador.ControladorProducto;
 import ec.edu.ups.modelo.Categoria;
 import ec.edu.ups.modelo.Producto;
 import javax.swing.JOptionPane;
+import java.util.Set;
 
 /**
  *
@@ -17,18 +18,28 @@ import javax.swing.JOptionPane;
  */
 public class VentanaCrearProducto extends javax.swing.JInternalFrame {
     private ControladorProducto controladorProducto;
-    //private ControladorCategoria controladorCategoria;
+    private ControladorCategoria controladorCategoria;
     private Producto producto;
     private Categoria categoria;
+    private Set<Categoria> lista;
 
     /**
      * Creates new form VentanaCrearProducto
      */
-    public VentanaCrearProducto(ControladorProducto controladorProducto) {
+    public VentanaCrearProducto(ControladorProducto controladorProducto, ControladorCategoria controladorCategoria) {
         initComponents();
         this.controladorProducto=controladorProducto;
-        txtCodigo.setText(String.valueOf(controladorProducto.getCodigo()));
+        this.controladorCategoria = controladorCategoria;
+        txtCodigo.setText(String.valueOf(controladorProducto.getCodigo()+1));
+        llenarCombobox();
         
+    }
+    
+    public void llenarCombobox(){
+        lista = controladorCategoria.getLista();
+        for (Categoria categoria : lista) {
+            jCCategoria.addItem(categoria.getNombre());
+        }
     }
 
     /**
@@ -136,6 +147,11 @@ public class VentanaCrearProducto extends javax.swing.JInternalFrame {
         });
 
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,18 +189,23 @@ public class VentanaCrearProducto extends javax.swing.JInternalFrame {
         producto.setNombre(txtNombre.getText());
         producto.setPrecio(Double.parseDouble(txtPrecio.getText()));
         producto.setStock(Integer.parseInt(txtStock.getText()));
-        //producto.setCategoria(categoria);
-        
+        for (Categoria categoria : lista) {
+            if (categoria.getNombre()== jCCategoria.getSelectedItem()) {
+                producto.setCategoria(categoria);
+                break;
+            }
+        }       
         controladorProducto.create(producto);
-        JOptionPane.showMessageDialog(rootPane, "Producto Creado", "Crear Ptoducto", JOptionPane.OK_OPTION);
-        
-        txtCodigo.setText(String.valueOf(controladorProducto.getCodigo()));
+        JOptionPane.showMessageDialog(rootPane, "Producto Creado", "Crear Ptoducto", JOptionPane.OK_OPTION);        
+        txtCodigo.setText(String.valueOf(controladorProducto.getCodigo()+1));
         txtNombre.setText("");
         txtPrecio.setText("");
-        txtStock.setText("");
-        jCCategoria.setToolTipText("");
-        txtNombre.requestFocus();
+        txtStock.setText("");             
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

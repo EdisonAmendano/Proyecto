@@ -10,22 +10,25 @@ import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.controlador.ControladorEmpleado;
 import ec.edu.ups.controlador.ControladorFactura;
 import ec.edu.ups.controlador.ControladorProducto;
-import ec.edu.ups.vista.categoria.VentanaBuscarCategoria;
-import ec.edu.ups.vista.categoria.VentanaBuscarCategoria;
 
 /**
  *
  * @author Edison/fccvmhvhjv
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
+
     private VentanaBuscarCategoria vtnbcat;
-    private VentanaCrearCliente vcc; 
+    private VentanaCrearCliente vtncc;
+    private VentanaListarCliente vtnlc;
+    private VentanaEliminarCliente vtnec;
+    private VentanaModificarClienta vtnmc;
+    private VentanaBuscarCliente vtnbc;
     private VentanaCrearCategoria vtnccat;
     private VentanaCrearEmpleado vtnce;
     private VentanaBuscarEmpleado vtnbe;
     private VentanaEliminarEmpleado vtnee;
     private VentanaModificarEmpleado vtnme;
-    private VentanaEliminarEmpleado vtnle;
+    private VentanaListarEmpleado vtnle;
     private VentanaCrearProducto vtncp;
     private VentanaBuscarProducto vtnbp;
     private VentanaModificarProducto vtnmp;
@@ -41,10 +44,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private ControladorEmpleado controladorEmpleado;
     private ControladorFactura controladorFactura;
     private ControladorProducto controladorProducto;
-    
+
     public VentanaPrincipal() {
         initComponents();
-        controladorCategoria= new ControladorCategoria();
+        controladorCategoria = new ControladorCategoria();
+        controladorCliente = new ControladorCliente();
+        controladorEmpleado = new ControladorEmpleado();
+        controladorFactura = new ControladorFactura();
+        controladorProducto = new ControladorProducto();
     }
 
     /**
@@ -232,18 +239,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnBuscarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         btnBuscarCliente.setText("Buscar");
+        btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarClienteActionPerformed(evt);
+            }
+        });
         menuCliente.add(btnBuscarCliente);
 
         btnModificarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
         btnModificarCliente.setText("Modificar");
+        btnModificarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarClienteActionPerformed(evt);
+            }
+        });
         menuCliente.add(btnModificarCliente);
 
         btnEliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
         btnEliminarCliente.setText("Eliminar");
+        btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarClienteActionPerformed(evt);
+            }
+        });
         menuCliente.add(btnEliminarCliente);
 
         btnListarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lista.png"))); // NOI18N
         btnListarCliente.setText("Listar");
+        btnListarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarClienteActionPerformed(evt);
+            }
+        });
         menuCliente.add(btnListarCliente);
 
         menuPersona.add(menuCliente);
@@ -350,11 +377,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
-       
+        if (vtncc == null || !vtncc.isVisible()) {
+            vtncc = new VentanaCrearCliente(controladorCliente);
+            vtncc.setVisible(true);
+            desktopPane.add(vtncc);
+        }
     }//GEN-LAST:event_btnCrearClienteActionPerformed
 
     private void btnIngresarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarCategoriaActionPerformed
-        if(vtnccat == null || !vtnccat.isVisible()){
+        if (vtnccat == null || !vtnccat.isVisible()) {
             vtnccat = new VentanaCrearCategoria(controladorCategoria);
             vtnccat.setVisible(true);
             desktopPane.add(vtnccat);
@@ -362,7 +393,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarCategoriaActionPerformed
 
     private void btnBuscarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCategoriaActionPerformed
-        if(vtnbcat == null || !vtnbcat.isVisible()){
+        if (vtnbcat == null || !vtnbcat.isVisible()) {
             vtnbcat = new VentanaBuscarCategoria(controladorCategoria);
             vtnbcat.setVisible(true);
             desktopPane.add(vtnbcat);
@@ -370,7 +401,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarCategoriaActionPerformed
 
     private void btnModificarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCategoriaActionPerformed
-        if(vtnmcat == null || !vtnmcat.isVisible()){
+        if (vtnmcat == null || !vtnmcat.isVisible()) {
             vtnmcat = new VentanaModificarCategoria(controladorCategoria);
             vtnmcat.setVisible(true);
             desktopPane.add(vtnmcat);
@@ -378,7 +409,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarCategoriaActionPerformed
 
     private void btnListarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarCategoriaActionPerformed
-        if(vtnlcat == null || !vtnlcat.isVisible()){
+        if (vtnlcat == null || !vtnlcat.isVisible()) {
             vtnlcat = new VentanaListarCategoria(controladorCategoria);
             vtnlcat.setVisible(true);
             desktopPane.add(vtnlcat);
@@ -386,7 +417,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarCategoriaActionPerformed
 
     private void btnEliminarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCategoriaActionPerformed
-       if(vtnecat == null || !vtnecat.isVisible()){
+        if (vtnecat == null || !vtnecat.isVisible()) {
             vtnecat = new VentanaEliminarCategoria(controladorCategoria);
             vtnecat.setVisible(true);
             desktopPane.add(vtnecat);
@@ -394,15 +425,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarCategoriaActionPerformed
 
     private void btnCrearProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearProductoActionPerformed
-        if(vtncp == null || !vtncp.isVisible()){
-            vtncp = new VentanaCrearProducto(controladorProducto);
+        if (vtncp == null || !vtncp.isVisible()) {
+            vtncp = new VentanaCrearProducto(controladorProducto, controladorCategoria);
             vtncp.setVisible(true);
             desktopPane.add(vtncp);
         }
     }//GEN-LAST:event_btnCrearProductoActionPerformed
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
-        if(vtnbp == null || !vtnbp.isVisible()){
+        if (vtnbp == null || !vtnbp.isVisible()) {
             vtnbp = new VentanaBuscarProducto(controladorProducto);
             vtnbp.setVisible(true);
             desktopPane.add(vtnbp);
@@ -410,15 +441,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarProductoActionPerformed
 
     private void btnModificarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProductoActionPerformed
-        if(vtnmp == null || !vtnmp.isVisible()){
-            vtnmp = new VentanaModificarProducto(controladorProducto);
+        if (vtnmp == null || !vtnmp.isVisible()) {
+            vtnmp = new VentanaModificarProducto(controladorProducto, controladorCategoria);
             vtnmp.setVisible(true);
             desktopPane.add(vtnmp);
         }
     }//GEN-LAST:event_btnModificarProductoActionPerformed
 
     private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
-        if(vtnep == null || !vtnep.isVisible()){
+        if (vtnep == null || !vtnep.isVisible()) {
             vtnep = new VentanaEliminarProducto(controladorProducto);
             vtnep.setVisible(true);
             desktopPane.add(vtnep);
@@ -426,7 +457,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarProductoActionPerformed
 
     private void btnListarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarProductoActionPerformed
-        if(vtnlp == null || !vtnlp.isVisible()){
+        if (vtnlp == null || !vtnlp.isVisible()) {
             vtnlp = new VentanaListarProducto(controladorProducto);
             vtnlp.setVisible(true);
             desktopPane.add(vtnlp);
@@ -434,7 +465,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarProductoActionPerformed
 
     private void btnCrearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearEmpleadoActionPerformed
-        if(vtnce == null || !vtnce.isVisible()){
+        if (vtnce == null || !vtnce.isVisible()) {
             vtnce = new VentanaCrearEmpleado(controladorEmpleado);
             vtnce.setVisible(true);
             desktopPane.add(vtnce);
@@ -442,7 +473,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearEmpleadoActionPerformed
 
     private void btnBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEmpleadoActionPerformed
-        if(vtnbe == null || !vtnbe.isVisible()){
+        if (vtnbe == null || !vtnbe.isVisible()) {
             vtnbe = new VentanaBuscarEmpleado(controladorEmpleado);
             vtnbe.setVisible(true);
             desktopPane.add(vtnbe);
@@ -450,7 +481,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarEmpleadoActionPerformed
 
     private void btnModificarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarEmpleadoActionPerformed
-        if(vtnme == null || !vtnme.isVisible()){
+        if (vtnme == null || !vtnme.isVisible()) {
             vtnme = new VentanaModificarEmpleado(controladorEmpleado);
             vtnme.setVisible(true);
             desktopPane.add(vtnme);
@@ -458,7 +489,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarEmpleadoActionPerformed
 
     private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
-        if(vtnee == null || !vtnee.isVisible()){
+        if (vtnee == null || !vtnee.isVisible()) {
             vtnee = new VentanaEliminarEmpleado(controladorEmpleado);
             vtnee.setVisible(true);
             desktopPane.add(vtnee);
@@ -466,28 +497,60 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
     private void btnListarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEmpleadoActionPerformed
-        if(vtnle == null || !vtnle.isVisible()){
-            vtnle = new VentanaListarProducto(controladorEmpleado);
+        if (vtnle == null || !vtnle.isVisible()) {
+            vtnle = new VentanaListarEmpleado(controladorEmpleado);
             vtnle.setVisible(true);
             desktopPane.add(vtnle);
         }
     }//GEN-LAST:event_btnListarEmpleadoActionPerformed
 
     private void btnCrearFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearFacturaActionPerformed
-        if(vtncf == null || !vtncf.isVisible()){
-            vtncf = new ventanaCrearFactura(controladorFactura);
+        if (vtncf == null || !vtncf.isVisible()) {
+            // vtncf = new ventanaCrearFactura(controladorFactura);
             vtncf.setVisible(true);
             desktopPane.add(vtncf);
         }
     }//GEN-LAST:event_btnCrearFacturaActionPerformed
 
     private void btnEliminarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFacturaActionPerformed
-        if(vtnef == null || !vtnef.isVisible()){
-            vtnef = new VentanaEliminarFactura(controladorFactura);
+        if (vtnef == null || !vtnef.isVisible()) {
+            // vtnef = new VentanaEliminarFactura(controladorFactura);
             vtnef.setVisible(true);
             desktopPane.add(vtnef);
         }
     }//GEN-LAST:event_btnEliminarFacturaActionPerformed
+
+    private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
+        if (vtnbc == null || !vtnbc.isVisible()) {
+            vtnbc = new VentanaBuscarCliente(controladorCliente);
+            vtnbc.setVisible(true);
+            desktopPane.add(vtnbc);
+        }
+    }//GEN-LAST:event_btnBuscarClienteActionPerformed
+
+    private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
+        if (vtnmc == null || !vtnmc.isVisible()) {
+            vtnmc = new VentanaModificarClienta(controladorCliente);
+            vtnmc.setVisible(true);
+            desktopPane.add(vtnmc);
+        }
+    }//GEN-LAST:event_btnModificarClienteActionPerformed
+
+    private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
+        if (vtnec == null || !vtnec.isVisible()) {
+            vtnec = new VentanaEliminarCliente(controladorCliente);
+            vtnec.setVisible(true);
+            desktopPane.add(vtnec);
+        }
+    }//GEN-LAST:event_btnEliminarClienteActionPerformed
+
+    private void btnListarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarClienteActionPerformed
+        if (vtnlc == null || !vtnlc.isVisible()) {
+            vtnlc = new VentanaListarCliente(controladorCliente);
+            vtnlc.setVisible(true);
+            desktopPane.add(vtnlc);
+        }
+    }//GEN-LAST:event_btnListarClienteActionPerformed
 
     /**
      * @param args the command line arguments

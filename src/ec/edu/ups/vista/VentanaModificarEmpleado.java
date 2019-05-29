@@ -74,6 +74,11 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
         jLDireccion.setText("Direccion");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         jLNombre.setText("Nombre");
 
@@ -90,6 +95,11 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
 
         btnGuardar.setText("Guardar");
         btnGuardar.setEnabled(false);
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,7 +182,7 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
          int codigo = Integer.parseInt(txtCodigo.getText());
-        empleado = controladorEmpleado.read(codigo);
+        Empleado empleado = controladorEmpleado.read(codigo);
           
         if (empleado!=null){
         txtCodigo.setText(String.valueOf(empleado.getCodigo())); //convierte un int a String solo para la visuañizacion.
@@ -181,6 +191,8 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
         txtNombre.setText(empleado.getNombre());
         txtDireccion.setText(empleado.getDireccion());
         txtTelefono.setText(empleado.getTelefono());
+        txtSalario.setText(String.valueOf(empleado.getSalario()));
+        txtPuesto.setText(empleado.getPuesto());
         txtNombre.setEditable(true);
         txtCedula.setEditable(true);
         txtDireccion.setEditable(true);
@@ -190,6 +202,31 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "No se encontro el Cliente", "Buscar Cliente", JOptionPane.OK_OPTION);
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        Empleado empleado = new Empleado();
+        empleado.setCodigo(codigoModificar);
+        empleado.setCedula(txtCedula.getText());
+        empleado.setNombre(txtNombre.getText());
+        empleado.setDireccion(txtDireccion.getText());
+        empleado.setPuesto(txtPuesto.getText());
+        empleado.setSalario(Double.parseDouble(txtSalario.getText()));
+        empleado.setTelefono(txtTelefono.getText());
+        controladorEmpleado.update(empleado);
+        JOptionPane.showMessageDialog(this, "Se a modificado correctamente el empleado", "Modificar empleado", JOptionPane.OK_OPTION);
+        txtCodigo.setText("");
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+        txtPuesto.setText("");
+        txtSalario.setText("");
+        btnGuardar.setEnabled(false);
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

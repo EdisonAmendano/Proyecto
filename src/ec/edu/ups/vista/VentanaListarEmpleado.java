@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package ec.edu.ups.vista;
+import ec.edu.ups.controlador.ControladorEmpleado;
+import ec.edu.ups.modelo.Empleado;
+import java.util.Set;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -14,8 +19,43 @@ public class VentanaListarEmpleado extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaListarEmpleado
      */
-    public VentanaListarEmpleado() {
+    private ControladorEmpleado controladorEmpleado;
+    public VentanaListarEmpleado(ControladorEmpleado controladorEmpleado) {
         initComponents();
+        this.controladorEmpleado = controladorEmpleado;
+        llenarDatos();
+    }
+    
+    public void llenarDatos() {
+
+        /**
+         * aqui se obtiene el modelo
+         */
+       
+       DefaultTableModel modelo = (DefaultTableModel) table.getModel();
+       
+        // Se obtiene la lista de controladorCliente 
+        // Es un arreglo de un objeto
+        Set<Empleado> Lista = controladorEmpleado.getLista();
+        if (Lista != null) {
+            for (Empleado cliente : Lista) {
+                //object[] datos= new Object[5]; 
+                // separo por comas
+                Object[] datos = {cliente.getCodigo(),
+                    cliente.getCedula(),
+                    cliente.getNombre(),
+                    cliente.getDireccion(),
+                    cliente.getTelefono(),
+                    cliente.getPuesto(),
+                    cliente.getSalario()};
+                //Añade el modelo 
+                //Por cada iteracion se añade una fila 
+                modelo.addRow(datos);
+
+            }
+        }else{
+                System.out.println("4");
+        }  
     }
 
     /**
@@ -29,9 +69,10 @@ public class VentanaListarEmpleado extends javax.swing.JInternalFrame {
 
         jColorChooser1 = new javax.swing.JColorChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Table = new javax.swing.JTable();
+        table = new javax.swing.JTable();
+        btnCancelar = new javax.swing.JButton();
 
-        Table.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -47,28 +88,46 @@ public class VentanaListarEmpleado extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(Table);
+        jScrollPane1.setViewportView(table);
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCancelar)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCancelar)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Table;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

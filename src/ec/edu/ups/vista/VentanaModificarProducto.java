@@ -5,8 +5,11 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCategoria;
 import ec.edu.ups.controlador.ControladorProducto;
+import ec.edu.ups.modelo.Categoria;
 import ec.edu.ups.modelo.Producto;
+import java.util.Set;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,15 +17,20 @@ import javax.swing.JOptionPane;
  * @author Edison
  */
 public class VentanaModificarProducto extends javax.swing.JInternalFrame {
+
     private ControladorProducto controladorProducto;
+    private ControladorCategoria controladorCategoria;
     private Producto producto;
+    private Set<Categoria> lista;
+    private int codigo;
 
     /**
      * Creates new form VentanaModificarProducto
      */
-    public VentanaModificarProducto(ControladorProducto controladorProducto) {
+    public VentanaModificarProducto(ControladorProducto controladorProducto, ControladorCategoria controladorCategoria) {
         initComponents();
-        this.controladorProducto= controladorProducto;
+        this.controladorProducto = controladorProducto;
+        this.controladorCategoria = controladorCategoria;
     }
 
     /**
@@ -43,7 +51,7 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLCategoria = new javax.swing.JLabel();
-        txtCategoria = new javax.swing.JTextField();
+        jCCategoria = new javax.swing.JComboBox<>();
         btnCancelar = new javax.swing.JButton();
         jLCodigo = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
@@ -82,15 +90,15 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
                         .addGap(60, 60, 60)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNombre)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)))
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLSock)
                             .addComponent(jLCategoria))
                         .addGap(53, 53, 53)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtStock, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                            .addComponent(txtCategoria))))
+                            .addComponent(txtStock, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addComponent(jCCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -111,11 +119,16 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCategoria)
-                    .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1))
         );
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         jLCodigo.setText("Codigo");
 
@@ -148,7 +161,7 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
                         .addComponent(btnGuardar)
                         .addGap(39, 39, 39)
                         .addComponent(btnCancelar)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +173,7 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
                     .addComponent(btnBuscar))
                 .addGap(43, 43, 43)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnCancelar))
@@ -173,49 +186,66 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         int codigo = Integer.parseInt(txtCodigo.getText());
         Producto prod = controladorProducto.read(codigo);
-        
-       txtCodigo.setText(String.valueOf(prod.getCodigo()));
-       txtNombre.setText(prod.getNombre());
-       txtPrecio.setText(String.valueOf(prod.getPrecio()));
-       txtStock.setText(String.valueOf(prod.getStock()));
-       txtCategoria.setText(String.valueOf(prod.getCategoria()));
+        if (prod != null) {
+            jCCategoria.removeAllItems();;
+            txtCodigo.setText(String.valueOf(prod.getCodigo()));
+            this.codigo = Integer.parseInt(txtCodigo.getText());
+            txtNombre.setText(prod.getNombre());
+            txtPrecio.setText(String.valueOf(prod.getPrecio()));
+            txtStock.setText(String.valueOf(prod.getStock()));
+            jCCategoria.addItem(prod.getCategoria().getNombre());
+            lista = controladorCategoria.getLista();
+            for (Categoria categoria : lista) {
+                if (!categoria.getNombre().equals(prod.getCategoria().getNombre())) {
+                    jCCategoria.addItem(categoria.getNombre());
+                }
+            }
+            btnGuardar.setEnabled(true);
+        } else {
+
+        }
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-       String codi = txtCodigo.getText();
-      
-        if (codi.isEmpty() ) {
-            JOptionPane.showMessageDialog(rootPane, "Ingrese valores para Actualizar", "Error", JOptionPane.WARNING_MESSAGE);
-        } else {
-            producto.setCodigo(Integer.valueOf(producto.getCodigo()));//
-            producto.setNombre(txtNombre.getText());
-            producto.setPrecio(Double.parseDouble(txtPrecio.getText()));
-            producto.setStock(Integer.parseInt(txtStock.getText()));
-            //producto.setCategoria(categoria);
-            controladorProducto.update(producto);
-            JOptionPane.showMessageDialog(this, " Datos Actualizados", "Ventana Actualizar Producto", JOptionPane.OK_OPTION);
-
-            txtCodigo.setText("");
-            txtNombre.setText("");
-            txtPrecio.setText("");
-            txtStock.setText("");
-            txtCategoria.setText("");
+        Producto producto = new Producto();
+        producto.setCodigo(codigo);
+        producto.setNombre(txtNombre.getText());
+        producto.setPrecio(Double.parseDouble(txtPrecio.getText()));
+        producto.setStock(Integer.parseInt(txtStock.getText()));
+        for (Categoria categoria : lista) {
+            if (categoria.getNombre() == jCCategoria.getSelectedItem()) {
+                producto.setCategoria(categoria);
+                break;
+            }
         }
-        txtCodigo.requestFocus(); 
+        controladorProducto.update(producto);
+        JOptionPane.showMessageDialog(this, " Datos Actualizados", "Ventana Actualizar Producto", JOptionPane.OK_OPTION);
+
+        txtCodigo.setText("");
+        txtNombre.setText("");
+        txtPrecio.setText("");
+        txtStock.setText("");
+        btnGuardar.setEnabled(false);
+        jCCategoria.removeAllItems();
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JComboBox<String> jCCategoria;
     private javax.swing.JLabel jLCategoria;
     private javax.swing.JLabel jLCodigo;
     private javax.swing.JLabel jLPrecio;
     private javax.swing.JLabel jLSock;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
