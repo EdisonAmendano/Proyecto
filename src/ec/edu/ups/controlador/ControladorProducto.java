@@ -11,7 +11,7 @@ import java.util.Set;
 
 /**
  *
- * @author Edisonjhkl
+ * @author Edison
  */
 public class ControladorProducto {
     private Set<Producto> lista;

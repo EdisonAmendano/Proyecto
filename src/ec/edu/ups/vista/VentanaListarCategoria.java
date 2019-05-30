@@ -7,6 +7,8 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCategoria;
 import ec.edu.ups.modelo.Categoria;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.table.DefaultTableModel;
 import java.util.Set;
 /**
@@ -19,6 +21,9 @@ public class VentanaListarCategoria extends javax.swing.JInternalFrame {
      * Creates new form VentanaListarCategoria
      */
     private ControladorCategoria controladorCategoria;
+    private Locale localizacion;
+    private ResourceBundle mensajes;
+    
     public VentanaListarCategoria(ControladorCategoria controladorCategoria) {
         initComponents();
         this.controladorCategoria = controladorCategoria;
@@ -33,7 +38,16 @@ public class VentanaListarCategoria extends javax.swing.JInternalFrame {
             model.addRow(datos);
         }
     }
-
+     public void cambiarIdioma(ResourceBundle mensajes){
+       
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
+        
+        // JTABLE
+        Object [] columnas = {mensajes.getString("cliente.codigo"), mensajes.getString("cliente.nombre"), mensajes.getString("jlb.descripcion")};
+        
+        DefaultTableModel mod = (DefaultTableModel) table.getModel();
+        mod.setColumnIdentifiers(columnas);
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,19 +82,23 @@ public class VentanaListarCategoria extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 299, Short.MAX_VALUE)
+                        .addComponent(btnCancelar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCancelar)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

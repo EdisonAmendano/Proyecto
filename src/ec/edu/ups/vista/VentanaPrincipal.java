@@ -10,6 +10,8 @@ import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.controlador.ControladorEmpleado;
 import ec.edu.ups.controlador.ControladorFactura;
 import ec.edu.ups.controlador.ControladorProducto;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -39,12 +41,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaListarCategoria vtnlcat;
     private VentanaModificarCategoria vtnmcat;
     private VentanaEliminarCategoria vtnecat;
-    private VentanaListarFactura vtnlf;
     private ControladorCliente controladorCliente;
     private ControladorCategoria controladorCategoria;
     private ControladorEmpleado controladorEmpleado;
     private ControladorFactura controladorFactura;
     private ControladorProducto controladorProducto;
+    private VentanaListarFactura ventanaListarF;
+    private Locale localizacion;
+    private ResourceBundle mensajes;
 
     public VentanaPrincipal() {
         initComponents();
@@ -53,6 +57,121 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorEmpleado = new ControladorEmpleado();
         controladorFactura = new ControladorFactura();
         controladorProducto = new ControladorProducto();
+        localizacion = new Locale("es", "EC");
+        Locale.setDefault(localizacion);
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+    }
+
+    public void cambiarIdioma() {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        menuProducto.setText(mensajes.getString("menu.producto"));
+        menuFactura.setText(mensajes.getString("menu.factura"));
+        menuIdioma.setText(mensajes.getString("menu.idioma"));
+        menuCategoria.setText(mensajes.getString("menu.categoria"));
+        menuCliente.setText(mensajes.getString("menu.Item.cliente"));
+        menuEmpleado.setText(mensajes.getString("menu.Item.empleado"));
+
+        btnIngresarCategoria.setText(mensajes.getString("menu.item.crear"));
+        btnCrearProducto.setText(mensajes.getString("menu.item.crear"));
+        btnCrearCliente.setText(mensajes.getString("menu.item.crear"));
+        btnCrearEmpleado.setText(mensajes.getString("menu.item.crear"));
+        btnCrearFactura.setText(mensajes.getString("menu.item.crear"));
+
+        btnBuscarCategoria.setText(mensajes.getString("menu.item.buscar"));
+        btnBuscarProducto.setText(mensajes.getString("menu.item.buscar"));
+        btnBuscarCliente.setText(mensajes.getString("menu.item.buscar"));
+        btnBuscarEmpleado.setText(mensajes.getString("menu.item.buscar"));
+
+        btnModificarCategoria.setText(mensajes.getString("menu.item.actualizar"));
+        btnModificarProducto.setText(mensajes.getString("menu.item.actualizar"));
+        btnModificarCliente.setText(mensajes.getString("menu.item.actualizar"));
+        btnModificarEmpleado.setText(mensajes.getString("menu.item.actualizar"));
+
+        btnEliminarCategoria.setText(mensajes.getString("menu.item.eliminar"));
+        btnEliminarProducto.setText(mensajes.getString("menu.item.eliminar"));
+        btnEliminarCliente.setText(mensajes.getString("menu.item.eliminar"));
+        btnEliminarEmpleado.setText(mensajes.getString("menu.item.eliminar"));
+
+        btnListarCategoria.setText(mensajes.getString("menu.item.listar"));
+        btnListarProducto.setText(mensajes.getString("menu.item.listar"));
+        btnListarEmpleado.setText(mensajes.getString("menu.item.listar"));
+        btnListarCliente.setText(mensajes.getString("menu.item.listar"));
+        menuFacturaL.setText(mensajes.getString("menu.item.listar"));
+
+        btnEliminarFactura.setText(mensajes.getString("menu.item.anular"));
+        btnEspañol.setText(mensajes.getString("menu.item.espanol"));
+        btnIngles.setText(mensajes.getString("menu.item.ingles"));
+
+        if (vtncc != null) {
+            vtncc.cambiarIdioma(mensajes);
+        }
+        if (vtnccat != null) {
+            vtnccat.cambiarIdioma(mensajes);
+        }
+        if (vtnbcat != null) {
+            vtnbcat.cambiarIdioma(mensajes);
+        }
+        if (vtnlc != null) {
+            vtnlc.cambiarIdioma(mensajes);
+        }
+        if (vtnmcat != null) {
+            vtnmcat.cambiarIdioma(mensajes);
+        }
+        if (vtnlcat != null) {
+            vtnlcat.cambiarIdioma(mensajes);
+        }
+        if (vtnecat != null) {
+            vtnecat.cambiarIdioma(mensajes);
+        }
+        if (vtncp != null) {
+            vtncp.cambiarIdioma(mensajes);
+        }
+        if (vtnbp != null) {
+            vtnbp.cambiarIdioma(mensajes);
+        }
+        if (vtnmp != null) {
+            vtnmp.cambiarIdioma(mensajes);
+        }
+        if (vtnep != null) {
+            vtnep.cambiarIdioma(mensajes);
+        }
+        if (vtnlp != null) {
+            vtnlp.cambiarIdioma(mensajes);
+        }
+        if (vtnce != null) {
+            vtnce.cambiarIdioma(mensajes);
+        }
+        if (vtnbe != null) {
+            vtnbe.cambiarIdioma(mensajes);
+        }
+        if (vtnme != null) {
+            vtnme.cambiarIdioma(mensajes);
+        }
+        if (vtnee != null) {
+            vtnee.cambiarIdioma(mensajes);
+        }
+        if (vtnle != null) {
+            vtnle.cambiarIdioma(mensajes);
+        }
+        if (vtnbc != null) {
+            vtnbc.cambiarIdioma(mensajes);
+        }
+        if (vtnmc != null) {
+            vtnmc.cambiarIdioma(mensajes);
+        }
+        if (vtnec != null) {
+            vtnec.cambiarIdioma(mensajes);
+        }
+        if (vtnef != null) {
+            vtnef.cambiarIdioma(mensajes);
+        }
+        if (vtncf != null) {
+            vtncf.cambiarIdioma(mensajes);
+        }
+        if (ventanaListarF != null) {
+            ventanaListarF.cambiarIdioma(mensajes);
+        }
+
     }
 
     /**
@@ -75,7 +194,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        menuCategotia = new javax.swing.JMenu();
+        menuCategoria = new javax.swing.JMenu();
         btnIngresarCategoria = new javax.swing.JMenuItem();
         btnBuscarCategoria = new javax.swing.JMenuItem();
         btnModificarCategoria = new javax.swing.JMenuItem();
@@ -103,7 +222,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuFactura = new javax.swing.JMenu();
         btnCrearFactura = new javax.swing.JMenuItem();
         btnEliminarFactura = new javax.swing.JMenuItem();
-        btnListarFactura = new javax.swing.JMenuItem();
+        menuFacturaL = new javax.swing.JMenuItem();
         menuIdioma = new javax.swing.JMenu();
         btnEspañol = new javax.swing.JMenuItem();
         btnIngles = new javax.swing.JMenuItem();
@@ -128,7 +247,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        menuCategotia.setText("Categoria");
+        menuCategoria.setText("Categoria");
 
         btnIngresarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CALCULAR.png"))); // NOI18N
         btnIngresarCategoria.setText("Ingresar");
@@ -137,7 +256,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnIngresarCategoriaActionPerformed(evt);
             }
         });
-        menuCategotia.add(btnIngresarCategoria);
+        menuCategoria.add(btnIngresarCategoria);
 
         btnBuscarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         btnBuscarCategoria.setText("Buscar");
@@ -146,7 +265,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnBuscarCategoriaActionPerformed(evt);
             }
         });
-        menuCategotia.add(btnBuscarCategoria);
+        menuCategoria.add(btnBuscarCategoria);
 
         btnModificarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
         btnModificarCategoria.setText("Modificar");
@@ -155,7 +274,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnModificarCategoriaActionPerformed(evt);
             }
         });
-        menuCategotia.add(btnModificarCategoria);
+        menuCategoria.add(btnModificarCategoria);
 
         btnListarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lista.png"))); // NOI18N
         btnListarCategoria.setText("Listar");
@@ -164,7 +283,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnListarCategoriaActionPerformed(evt);
             }
         });
-        menuCategotia.add(btnListarCategoria);
+        menuCategoria.add(btnListarCategoria);
 
         btnEliminarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
         btnEliminarCategoria.setText("Eliminar");
@@ -173,9 +292,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 btnEliminarCategoriaActionPerformed(evt);
             }
         });
-        menuCategotia.add(btnEliminarCategoria);
+        menuCategoria.add(btnEliminarCategoria);
 
-        menuBar.add(menuCategotia);
+        menuBar.add(menuCategoria);
 
         menuProducto.setText("Producto");
 
@@ -348,13 +467,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuFactura.add(btnEliminarFactura);
 
-        btnListarFactura.setText("Listar");
-        btnListarFactura.addActionListener(new java.awt.event.ActionListener() {
+        menuFacturaL.setText("Listar");
+        menuFacturaL.setToolTipText("");
+        menuFacturaL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarFacturaActionPerformed(evt);
+                menuFacturaLActionPerformed(evt);
             }
         });
-        menuFactura.add(btnListarFactura);
+        menuFactura.add(menuFacturaL);
 
         menuBar.add(menuFactura);
 
@@ -362,10 +482,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnEspañol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/idioma.png"))); // NOI18N
         btnEspañol.setText("Español");
+        btnEspañol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEspañolActionPerformed(evt);
+            }
+        });
         menuIdioma.add(btnEspañol);
 
         btnIngles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/idioma.png"))); // NOI18N
         btnIngles.setText("Ingles");
+        btnIngles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInglesActionPerformed(evt);
+            }
+        });
         menuIdioma.add(btnIngles);
 
         menuBar.add(menuIdioma);
@@ -376,11 +506,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 643, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 803, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -389,6 +523,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
         if (vtncc == null || !vtncc.isVisible()) {
             vtncc = new VentanaCrearCliente(controladorCliente);
+            vtncc.cambiarIdioma(mensajes);
             vtncc.setVisible(true);
             desktopPane.add(vtncc);
         }
@@ -397,6 +532,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnIngresarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarCategoriaActionPerformed
         if (vtnccat == null || !vtnccat.isVisible()) {
             vtnccat = new VentanaCrearCategoria(controladorCategoria);
+            vtnccat.cambiarIdioma(mensajes);
             vtnccat.setVisible(true);
             desktopPane.add(vtnccat);
         }
@@ -405,6 +541,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnBuscarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCategoriaActionPerformed
         if (vtnbcat == null || !vtnbcat.isVisible()) {
             vtnbcat = new VentanaBuscarCategoria(controladorCategoria);
+            vtnbcat.cambiarIdioma(mensajes);
             vtnbcat.setVisible(true);
             desktopPane.add(vtnbcat);
         }
@@ -413,6 +550,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnModificarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCategoriaActionPerformed
         if (vtnmcat == null || !vtnmcat.isVisible()) {
             vtnmcat = new VentanaModificarCategoria(controladorCategoria);
+            vtnmcat.cambiarIdioma(mensajes);
             vtnmcat.setVisible(true);
             desktopPane.add(vtnmcat);
         }
@@ -421,6 +559,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnListarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarCategoriaActionPerformed
         if (vtnlcat == null || !vtnlcat.isVisible()) {
             vtnlcat = new VentanaListarCategoria(controladorCategoria);
+            vtnlcat.cambiarIdioma(mensajes);
             vtnlcat.setVisible(true);
             desktopPane.add(vtnlcat);
         }
@@ -429,6 +568,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnEliminarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCategoriaActionPerformed
         if (vtnecat == null || !vtnecat.isVisible()) {
             vtnecat = new VentanaEliminarCategoria(controladorCategoria);
+            vtnecat.cambiarIdioma(mensajes);
             vtnecat.setVisible(true);
             desktopPane.add(vtnecat);
         }
@@ -437,6 +577,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnCrearProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearProductoActionPerformed
         if (vtncp == null || !vtncp.isVisible()) {
             vtncp = new VentanaCrearProducto(controladorProducto, controladorCategoria);
+            vtncp.cambiarIdioma(mensajes);
             vtncp.setVisible(true);
             desktopPane.add(vtncp);
         }
@@ -445,6 +586,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
         if (vtnbp == null || !vtnbp.isVisible()) {
             vtnbp = new VentanaBuscarProducto(controladorProducto);
+            vtnbp.cambiarIdioma(mensajes);
             vtnbp.setVisible(true);
             desktopPane.add(vtnbp);
         }
@@ -453,6 +595,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnModificarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProductoActionPerformed
         if (vtnmp == null || !vtnmp.isVisible()) {
             vtnmp = new VentanaModificarProducto(controladorProducto, controladorCategoria);
+            vtnmp.cambiarIdioma(mensajes);
             vtnmp.setVisible(true);
             desktopPane.add(vtnmp);
         }
@@ -461,6 +604,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
         if (vtnep == null || !vtnep.isVisible()) {
             vtnep = new VentanaEliminarProducto(controladorProducto);
+            vtnep.cambiarIdioma(mensajes);
             vtnep.setVisible(true);
             desktopPane.add(vtnep);
         }
@@ -469,6 +613,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnListarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarProductoActionPerformed
         if (vtnlp == null || !vtnlp.isVisible()) {
             vtnlp = new VentanaListarProducto(controladorProducto);
+            vtnlp.cambiarIdioma(mensajes);
             vtnlp.setVisible(true);
             desktopPane.add(vtnlp);
         }
@@ -477,6 +622,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnCrearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearEmpleadoActionPerformed
         if (vtnce == null || !vtnce.isVisible()) {
             vtnce = new VentanaCrearEmpleado(controladorEmpleado);
+            vtnce.cambiarIdioma(mensajes);
             vtnce.setVisible(true);
             desktopPane.add(vtnce);
         }
@@ -485,6 +631,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEmpleadoActionPerformed
         if (vtnbe == null || !vtnbe.isVisible()) {
             vtnbe = new VentanaBuscarEmpleado(controladorEmpleado);
+            vtnbe.cambiarIdioma(mensajes);
             vtnbe.setVisible(true);
             desktopPane.add(vtnbe);
         }
@@ -493,6 +640,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnModificarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarEmpleadoActionPerformed
         if (vtnme == null || !vtnme.isVisible()) {
             vtnme = new VentanaModificarEmpleado(controladorEmpleado);
+            vtnme.cambiarIdioma(mensajes);
             vtnme.setVisible(true);
             desktopPane.add(vtnme);
         }
@@ -501,6 +649,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
         if (vtnee == null || !vtnee.isVisible()) {
             vtnee = new VentanaEliminarEmpleado(controladorEmpleado);
+            vtnee.cambiarIdioma(mensajes);
             vtnee.setVisible(true);
             desktopPane.add(vtnee);
         }
@@ -509,6 +658,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnListarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEmpleadoActionPerformed
         if (vtnle == null || !vtnle.isVisible()) {
             vtnle = new VentanaListarEmpleado(controladorEmpleado);
+            vtnle.cambiarIdioma(mensajes);
             vtnle.setVisible(true);
             desktopPane.add(vtnle);
         }
@@ -517,6 +667,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnCrearFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearFacturaActionPerformed
         if (vtncf == null || !vtncf.isVisible()) {
             vtncf = new ventanaCrearFactura(controladorEmpleado, controladorCliente, controladorFactura, controladorProducto);
+            vtncf.cambiarIdioma(mensajes);
             vtncf.setVisible(true);
             desktopPane.add(vtncf);
         }
@@ -525,6 +676,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnEliminarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFacturaActionPerformed
         if (vtnef == null || !vtnef.isVisible()) {
             vtnef = new VentanaEliminarFactura(controladorFactura);
+            vtnef.cambiarIdioma(mensajes);
             vtnef.setVisible(true);
             desktopPane.add(vtnef);
         }
@@ -533,6 +685,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
         if (vtnbc == null || !vtnbc.isVisible()) {
             vtnbc = new VentanaBuscarCliente(controladorCliente);
+            vtnbc.cambiarIdioma(mensajes);
             vtnbc.setVisible(true);
             desktopPane.add(vtnbc);
         }
@@ -541,6 +694,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
         if (vtnmc == null || !vtnmc.isVisible()) {
             vtnmc = new VentanaModificarClienta(controladorCliente);
+            vtnmc.cambiarIdioma(mensajes);
             vtnmc.setVisible(true);
             desktopPane.add(vtnmc);
         }
@@ -549,6 +703,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
         if (vtnec == null || !vtnec.isVisible()) {
             vtnec = new VentanaEliminarCliente(controladorCliente);
+            vtnec.cambiarIdioma(mensajes);
             vtnec.setVisible(true);
             desktopPane.add(vtnec);
         }
@@ -557,18 +712,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnListarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarClienteActionPerformed
         if (vtnlc == null || !vtnlc.isVisible()) {
             vtnlc = new VentanaListarCliente(controladorCliente);
+            vtnlc.cambiarIdioma(mensajes);
             vtnlc.setVisible(true);
             desktopPane.add(vtnlc);
         }
     }//GEN-LAST:event_btnListarClienteActionPerformed
 
-    private void btnListarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarFacturaActionPerformed
-        if (vtnlf == null || !vtnlf.isVisible()) {
-            vtnlf = new VentanaListarFactura(controladorFactura);
-            vtnlf.setVisible(true);
-            desktopPane.add(vtnlf);
+    private void menuFacturaLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFacturaLActionPerformed
+
+        if (ventanaListarF == null || !ventanaListarF.isVisible()) {
+            ventanaListarF = new VentanaListarFactura(controladorFactura);
+            ventanaListarF.cambiarIdioma(mensajes);
+            ventanaListarF.setVisible(true);
+            desktopPane.add(ventanaListarF);
         }
-    }//GEN-LAST:event_btnListarFacturaActionPerformed
+    }//GEN-LAST:event_menuFacturaLActionPerformed
+    private void btnEspañolActionPerformed(java.awt.event.ActionEvent evt) {
+        localizacion = new Locale("es", "EC");
+        Locale.setDefault(localizacion);
+        System.out.println("1");
+        cambiarIdioma();
+    }
+
+    private void btnInglesActionPerformed(java.awt.event.ActionEvent evt) {
+        localizacion = new Locale("en", "US");
+        Locale.setDefault(localizacion);
+        System.out.println("2");
+        cambiarIdioma();
+    }
 
     /**
      * @param args the command line arguments
@@ -625,7 +796,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnListarCategoria;
     private javax.swing.JMenuItem btnListarCliente;
     private javax.swing.JMenuItem btnListarEmpleado;
-    private javax.swing.JMenuItem btnListarFactura;
     private javax.swing.JMenuItem btnListarProducto;
     private javax.swing.JMenuItem btnModificarCategoria;
     private javax.swing.JMenuItem btnModificarCliente;
@@ -642,10 +812,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenu menuCategotia;
+    private javax.swing.JMenu menuCategoria;
     private javax.swing.JMenu menuCliente;
     private javax.swing.JMenu menuEmpleado;
     private javax.swing.JMenu menuFactura;
+    private javax.swing.JMenuItem menuFacturaL;
     private javax.swing.JMenu menuIdioma;
     private javax.swing.JMenu menuPersona;
     private javax.swing.JMenu menuProducto;

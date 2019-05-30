@@ -10,6 +10,8 @@ import ec.edu.ups.controlador.ControladorFactura;
 import ec.edu.ups.modelo.Factura;
 import ec.edu.ups.modelo.FacturaDetalle;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -24,10 +26,37 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
     private DefaultTableModel model;
     private int codigo;
     private SimpleDateFormat formato;
+    private Locale localizacion;
+    private ResourceBundle mensajes;
     public VentanaEliminarFactura(ControladorFactura controladorFactura) {
         initComponents();
         this.controladorFactura = controladorFactura;
         formato = new SimpleDateFormat("dd/MM/yyyy");
+    }
+     public void cambiarIdioma(ResourceBundle mensajes){
+        
+        //Jlabel
+        lblCodigo.setText(mensajes.getString("cliente.codigo"));
+        lblNombre.setText(mensajes.getString("cliente.nombre"));
+        lblNombreE.setText(mensajes.getString("cliente.nombre")); 
+        lblCedula.setText(mensajes.getString("cliente.Cedula"));
+        lblDireccion.setText(mensajes.getString("cliente.direccion"));
+        lblTelefono.setText(mensajes.getString("cliente.telefono"));
+        lblEmpleadoC.setText(mensajes.getString("empleado.cedula")); 
+        lblSubTotal.setText(mensajes.getString("factura.subtotal"));
+        lblIva.setText(mensajes.getString("factura.iva"));
+        lblTotal.setText(mensajes.getString("factura.total"));
+        
+        //Botones
+        btnBuscar.setText(mensajes.getString("btn.buscar"));
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
+        btnAnular.setText(mensajes.getString("menu.item.anular"));
+        
+        //table
+        Object [] columnas = {mensajes.getString("cliente.codigo"), mensajes.getString("cliente.nombre"), mensajes.getString("factura.cantidad"), mensajes.getString("factura.descripcion"), mensajes.getString("producto.precio"), mensajes.getString("factura.total")};
+        
+        DefaultTableModel mod = (DefaultTableModel) table.getModel();
+        mod.setColumnIdentifiers(columnas);
     }
 
     /** This method is called from within the constructor to
@@ -40,35 +69,35 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jLCodigo = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLEmpleado = new javax.swing.JLabel();
+        lblEmpleadoC = new javax.swing.JLabel();
         jLIDEmpleado = new javax.swing.JLabel();
         txtIDEmpleado = new javax.swing.JTextField();
-        jLNombre = new javax.swing.JLabel();
+        lblNombreE = new javax.swing.JLabel();
         txtNombreE = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jLID = new javax.swing.JLabel();
+        lblCedula = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
-        JLNombre = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLDireccion = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
-        jLTelefono = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         txtSubTotal = new javax.swing.JTextField();
         txtIVA = new javax.swing.JTextField();
         txtTotal = new javax.swing.JTextField();
-        jLSubTotal = new javax.swing.JLabel();
-        jLIVA = new javax.swing.JLabel();
-        jLTotal = new javax.swing.JLabel();
+        lblSubTotal = new javax.swing.JLabel();
+        lblIva = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
         btnAnular = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         JLAnulado = new javax.swing.JLabel();
@@ -86,7 +115,7 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        jLCodigo.setText("Codigo");
+        lblCodigo.setText("Codigo");
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,31 +132,31 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Ruc de la empresa");
 
-        jLEmpleado.setText("Empleado:");
+        lblEmpleadoC.setText("Empleado:");
 
         jLIDEmpleado.setText("ID Empleado");
 
         txtIDEmpleado.setEditable(false);
 
-        jLNombre.setText("Nombre");
+        lblNombreE.setText("Nombre");
 
         txtNombreE.setEditable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
 
-        jLID.setText("ID");
+        lblCedula.setText("ID");
 
         txtID.setEditable(false);
 
-        JLNombre.setText("Nombre");
+        lblNombre.setText("Nombre");
 
         txtNombre.setEditable(false);
 
-        jLDireccion.setText("Direccion");
+        lblDireccion.setText("Direccion");
 
         txtDireccion.setEditable(false);
 
-        jLTelefono.setText("Telefono");
+        lblTelefono.setText("Telefono");
 
         txtTelefono.setEditable(false);
 
@@ -139,19 +168,19 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLID)
+                        .addComponent(lblCedula)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JLNombre)
+                        .addComponent(lblNombre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNombre))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLDireccion)
+                        .addComponent(lblDireccion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLTelefono)
+                        .addComponent(lblTelefono)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -160,15 +189,15 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLID)
+                    .addComponent(lblCedula)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLNombre)
+                    .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLDireccion)
+                    .addComponent(lblDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLTelefono)
+                    .addComponent(lblTelefono)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -196,11 +225,11 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
 
         txtTotal.setEditable(false);
 
-        jLSubTotal.setText("Sub. Total");
+        lblSubTotal.setText("Sub. Total");
 
-        jLIVA.setText("IVA");
+        lblIva.setText("IVA");
 
-        jLTotal.setText("Total");
+        lblTotal.setText("Total");
 
         btnAnular.setText("Anular");
         btnAnular.setEnabled(false);
@@ -255,11 +284,11 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtIDEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLNombre)
+                                .addComponent(lblNombreE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNombreE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLEmpleado)
+                                .addComponent(lblEmpleadoC)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jScrollPane1)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -267,9 +296,9 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
                                 .addComponent(JLAnulado, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLIVA, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLTotal, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLSubTotal, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(lblIva, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblTotal, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblSubTotal, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtSubTotal)
@@ -287,7 +316,7 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLCodigo)
+                                .addComponent(lblCodigo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -309,7 +338,7 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLCodigo)
+                            .addComponent(lblCodigo)
                             .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnBuscar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -322,12 +351,12 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLEmpleado)
+                .addComponent(lblEmpleadoC)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLIDEmpleado)
                     .addComponent(txtIDEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLNombre)
+                    .addComponent(lblNombreE)
                     .addComponent(txtNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -337,18 +366,18 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtSubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLSubTotal))
+                            .addComponent(lblSubTotal))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtIVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLIVA)))
+                            .addComponent(lblIva)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(JLAnulado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLTotal))
+                    .addComponent(lblTotal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAnular)
@@ -414,21 +443,11 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLAnulado;
-    private javax.swing.JLabel JLNombre;
     private javax.swing.JButton btnAnular;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JLabel jLCodigo;
-    private javax.swing.JLabel jLDireccion;
-    private javax.swing.JLabel jLEmpleado;
     private javax.swing.JLabel jLFecha;
-    private javax.swing.JLabel jLID;
     private javax.swing.JLabel jLIDEmpleado;
-    private javax.swing.JLabel jLIVA;
-    private javax.swing.JLabel jLNombre;
-    private javax.swing.JLabel jLSubTotal;
-    private javax.swing.JLabel jLTelefono;
-    private javax.swing.JLabel jLTotal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -437,6 +456,16 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblDireccion;
+    private javax.swing.JLabel lblEmpleadoC;
+    private javax.swing.JLabel lblIva;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombreE;
+    private javax.swing.JLabel lblSubTotal;
+    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JTable table;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDireccion;

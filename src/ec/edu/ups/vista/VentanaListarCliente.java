@@ -8,6 +8,8 @@ package ec.edu.ups.vista;
 import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.modelo.Cliente;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,6 +21,8 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
 
     private ControladorCliente controladorcliente;
     public static DefaultTableModel modelo;
+     private Locale localizacion;
+    private ResourceBundle mensajes;
     /**
      * Creates new form VentanaListarCliente
      */
@@ -58,6 +62,18 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
                 System.out.println("");
         }  
     }
+    
+     public void cambiarIdioma(ResourceBundle mensajes){
+       
+        //botones
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
+        
+        // JTABLE
+        Object [] columnas = {mensajes.getString("cliente.codigo"), mensajes.getString("cliente.nombre"), mensajes.getString("cliente.cedula"), mensajes.getString("cliente.direccion"), mensajes.getString("cliente.telefono")};
+        
+        DefaultTableModel mod = (DefaultTableModel) tablaCliente.getModel();
+        mod.setColumnIdentifiers(columnas);
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -6,7 +6,7 @@
 package ec.edu.ups.modelo;
 
 /**
- * tt
+ *
  * @author Edison
  */
 public class Categoria {

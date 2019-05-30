@@ -7,6 +7,8 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorEmpleado;
 import ec.edu.ups.modelo.Empleado;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,15 +17,32 @@ import javax.swing.JOptionPane;
  */
 public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
 
-     private ControladorEmpleado controladorEmpleado;
+    private ControladorEmpleado controladorEmpleado;
     private Empleado empleado;
     private int codigoModificar;
+    private Locale localizacion;
+    private ResourceBundle mensajes;
+
     /**
      * Creates new form VentanaModificarEmpleado
      */
     public VentanaModificarEmpleado(ControladorEmpleado controladorEmpleado) {
         initComponents();
-        this.controladorEmpleado=controladorEmpleado;
+        this.controladorEmpleado = controladorEmpleado;
+    }
+
+    public void cambiarIdioma(ResourceBundle mensajes) {
+        lblCodigo.setText(mensajes.getString("cliente.codigo"));
+        lblNombre.setText(mensajes.getString("cliente.nombre"));
+        lblCedula.setText(mensajes.getString("cliente.cedula"));
+        lblDireccion.setText(mensajes.getString("cliente.direccion"));
+        lblTelefono.setText(mensajes.getString("cliente.telefono"));
+        lblPuesto.setText(mensajes.getString("empelado.puesto"));
+        lblSalario.setText(mensajes.getString("empleado.salario"));
+
+        btnBuscar.setText(mensajes.getString("btn.buscar"));
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
+        btnActualizar.setText(mensajes.getString("btn.actualizar"));
     }
 
     /**
@@ -41,17 +60,17 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
         txtNombre = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
-        jLPuesto = new javax.swing.JLabel();
-        jLCodigo = new javax.swing.JLabel();
-        jLCedula = new javax.swing.JLabel();
-        jLSalario = new javax.swing.JLabel();
-        jLDireccion = new javax.swing.JLabel();
+        lblPuesto = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
+        lblCedula = new javax.swing.JLabel();
+        lblSalario = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
-        jLNombre = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         txtPuesto = new javax.swing.JTextField();
-        jLTelefono = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
 
         txtSalario.setEditable(false);
 
@@ -63,15 +82,15 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
 
         txtTelefono.setEditable(false);
 
-        jLPuesto.setText("Puesto");
+        lblPuesto.setText("Puesto");
 
-        jLCodigo.setText("Codigo");
+        lblCodigo.setText("Codigo");
 
-        jLCedula.setText("Cedula");
+        lblCedula.setText("Cedula");
 
-        jLSalario.setText("Salario");
+        lblSalario.setText("Salario");
 
-        jLDireccion.setText("Direccion");
+        lblDireccion.setText("Direccion");
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -80,11 +99,11 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
-        jLNombre.setText("Nombre");
+        lblNombre.setText("Nombre");
 
         txtPuesto.setEditable(false);
 
-        jLTelefono.setText("Telefono");
+        lblTelefono.setText("Telefono");
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,11 +112,11 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
-        btnGuardar.setText("Guardar");
-        btnGuardar.setEnabled(false);
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setEnabled(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                btnActualizarActionPerformed(evt);
             }
         });
 
@@ -108,13 +127,13 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLCodigo)
-                    .addComponent(jLCedula)
-                    .addComponent(jLNombre)
-                    .addComponent(jLDireccion)
-                    .addComponent(jLTelefono)
-                    .addComponent(jLPuesto)
-                    .addComponent(jLSalario))
+                    .addComponent(lblCodigo)
+                    .addComponent(lblCedula)
+                    .addComponent(lblNombre)
+                    .addComponent(lblDireccion)
+                    .addComponent(lblTelefono)
+                    .addComponent(lblPuesto)
+                    .addComponent(lblSalario))
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCedula)
@@ -131,7 +150,7 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(btnGuardar)
+                .addComponent(btnActualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
                 .addGap(33, 33, 33))
@@ -141,37 +160,37 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCodigo)
+                    .addComponent(lblCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCedula)
+                    .addComponent(lblCedula)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLNombre)
+                    .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLDireccion)
+                    .addComponent(lblDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLTelefono)
+                    .addComponent(lblTelefono)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLPuesto)
+                    .addComponent(lblPuesto)
                     .addComponent(txtPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLSalario)
+                    .addComponent(lblSalario)
                     .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
-                    .addComponent(btnGuardar))
+                    .addComponent(btnActualizar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -180,30 +199,30 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        
-         int codigo = Integer.parseInt(txtCodigo.getText());
+
+        int codigo = Integer.parseInt(txtCodigo.getText());
         Empleado empleado = controladorEmpleado.read(codigo);
-          
-        if (empleado!=null){
-        txtCodigo.setText(String.valueOf(empleado.getCodigo())); //convierte un int a String solo para la visuañizacion.
-        txtCedula.setText(empleado.getCedula());
-        codigoModificar= Integer.parseInt(txtCodigo.getText());
-        txtNombre.setText(empleado.getNombre());
-        txtDireccion.setText(empleado.getDireccion());
-        txtTelefono.setText(empleado.getTelefono());
-        txtSalario.setText(String.valueOf(empleado.getSalario()));
-        txtPuesto.setText(empleado.getPuesto());
-        txtNombre.setEditable(true);
-        txtCedula.setEditable(true);
-        txtDireccion.setEditable(true);
-        txtTelefono.setEditable(true);
-        btnGuardar.setEnabled(true);
-         } else {
+
+        if (empleado != null) {
+            txtCodigo.setText(String.valueOf(empleado.getCodigo())); //convierte un int a String solo para la visuañizacion.
+            txtCedula.setText(empleado.getCedula());
+            codigoModificar = Integer.parseInt(txtCodigo.getText());
+            txtNombre.setText(empleado.getNombre());
+            txtDireccion.setText(empleado.getDireccion());
+            txtTelefono.setText(empleado.getTelefono());
+            txtSalario.setText(String.valueOf(empleado.getSalario()));
+            txtPuesto.setText(empleado.getPuesto());
+            txtNombre.setEditable(true);
+            txtCedula.setEditable(true);
+            txtDireccion.setEditable(true);
+            txtTelefono.setEditable(true);
+            btnActualizar.setEnabled(true);
+        } else {
             JOptionPane.showMessageDialog(this, "No se encontro el Cliente", "Buscar Cliente", JOptionPane.OK_OPTION);
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         Empleado empleado = new Empleado();
         empleado.setCodigo(codigoModificar);
         empleado.setCedula(txtCedula.getText());
@@ -221,8 +240,8 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
         txtTelefono.setText("");
         txtPuesto.setText("");
         txtSalario.setText("");
-        btnGuardar.setEnabled(false);
-    }//GEN-LAST:event_btnGuardarActionPerformed
+        btnActualizar.setEnabled(false);
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
@@ -230,16 +249,16 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JLabel jLCedula;
-    private javax.swing.JLabel jLCodigo;
-    private javax.swing.JLabel jLDireccion;
-    private javax.swing.JLabel jLNombre;
-    private javax.swing.JLabel jLPuesto;
-    private javax.swing.JLabel jLSalario;
-    private javax.swing.JLabel jLTelefono;
+    private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblDireccion;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPuesto;
+    private javax.swing.JLabel lblSalario;
+    private javax.swing.JLabel lblTelefono;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDireccion;

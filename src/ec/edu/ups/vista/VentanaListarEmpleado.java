@@ -6,6 +6,7 @@
 package ec.edu.ups.vista;
 import ec.edu.ups.controlador.ControladorEmpleado;
 import ec.edu.ups.modelo.Empleado;
+import java.util.ResourceBundle;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
@@ -57,6 +58,17 @@ public class VentanaListarEmpleado extends javax.swing.JInternalFrame {
                 System.out.println("4");
         }  
     }
+       public void cambiarIdioma(ResourceBundle mensajes){
+       
+        //botones
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
+        
+        // JTABLE
+        Object [] columnas = {mensajes.getString("cliente.codigo"), mensajes.getString("cliente.nombre"), mensajes.getString("cliente.cedula"), mensajes.getString("cliente.direccion"), mensajes.getString("cliente.telefono"), mensajes.getString("empelado.puesto"), mensajes.getString("empleado.salario")};
+        
+        DefaultTableModel mod = (DefaultTableModel) table.getModel();
+        mod.setColumnIdentifiers(columnas);
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -7,6 +7,8 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.modelo.Cliente;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +19,8 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
 
     private ControladorCliente controladorcliente;
     private Cliente cliente;
+    private Locale localizacion;
+    private ResourceBundle mensajes;
     /**
      * Creates new form VentanaBuscarCliente
      */
@@ -25,6 +29,16 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         this.controladorcliente= controladorcliente;
     }
 
+        public void cambiarIdioma(ResourceBundle mensajes){
+        lblCodigo.setText(mensajes.getString("cliente.codigo"));
+        lblNombre.setText(mensajes.getString("cliente.nombre"));
+        lblCedula.setText(mensajes.getString("cliente.cedula"));
+        lblDireccion.setText(mensajes.getString("cliente.direccion"));
+        lblTelefono.setText(mensajes.getString("cliente.telefono"));
+        
+        btnBuscar.setText(mensajes.getString("btn.buscar"));
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,22 +48,22 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLDireccion = new javax.swing.JLabel();
-        jLTelefono = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         txtCodigo = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
-        jLCodigo = new javax.swing.JLabel();
-        jLCedula = new javax.swing.JLabel();
-        jLNombre = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
+        lblCedula = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
 
-        jLDireccion.setText("Direccion");
+        lblDireccion.setText("Direccion");
 
-        jLTelefono.setText("Telefono");
+        lblTelefono.setText("Telefono");
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -66,11 +80,11 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
 
         txtTelefono.setEditable(false);
 
-        jLCodigo.setText("Codigo");
+        lblCodigo.setText("Codigo");
 
-        jLCedula.setText("Cedula");
+        lblCedula.setText("Cedula");
 
-        jLNombre.setText("Nombre");
+        lblNombre.setText("Nombre");
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,11 +100,11 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLCodigo)
-                    .addComponent(jLCedula)
-                    .addComponent(jLNombre)
-                    .addComponent(jLDireccion)
-                    .addComponent(jLTelefono))
+                    .addComponent(lblCodigo)
+                    .addComponent(lblCedula)
+                    .addComponent(lblNombre)
+                    .addComponent(lblDireccion)
+                    .addComponent(lblTelefono))
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCedula)
@@ -113,24 +127,24 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCodigo)
+                    .addComponent(lblCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCedula)
+                    .addComponent(lblCedula)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLNombre)
+                    .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLDireccion)
+                    .addComponent(lblDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLTelefono)
+                    .addComponent(lblTelefono)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnCancelar)
@@ -167,11 +181,11 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JLabel jLCedula;
-    private javax.swing.JLabel jLCodigo;
-    private javax.swing.JLabel jLDireccion;
-    private javax.swing.JLabel jLNombre;
-    private javax.swing.JLabel jLTelefono;
+    private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblDireccion;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblTelefono;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDireccion;

@@ -8,6 +8,8 @@ package ec.edu.ups.vista;
 import ec.edu.ups.controlador.ControladorFactura;
 import ec.edu.ups.modelo.Factura;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.table.DefaultTableModel;
 import java.util.Set;
 
@@ -22,11 +24,12 @@ public class VentanaListarFactura extends javax.swing.JInternalFrame {
      */
     private ControladorFactura controladorFactura;
     private SimpleDateFormat formato;
+    private Locale localizacion;
+    private ResourceBundle mensajes;
     public VentanaListarFactura(ControladorFactura controladorFactura) {
         initComponents();
         this.controladorFactura =  controladorFactura;
         formato = new SimpleDateFormat("dd/MM/yyyy");
-        llenarDatos();
     }
     
     public void llenarDatos(){
@@ -37,11 +40,22 @@ public class VentanaListarFactura extends javax.swing.JInternalFrame {
                 factura.getCliente().getCedula(),
                 factura.getCliente().getNombre(),
                 factura.getEmpleado().getNombre(),
-                formato.format(factura.getFecha()),
+                factura.getFecha(),
                 factura.getTotal()};
             model.addRow(datos);
         }
     }
+     public void cambiarIdioma(ResourceBundle mensajes){
+       
+        //botones
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
+        
+        // JTABLE
+        Object [] columnas = {mensajes.getString("cliente.codigo"), mensajes.getString("cliente.cedula"), mensajes.getString("cliente.mombreC"), mensajes.getString("empleado.nombreE"),mensajes.getString("factura.fecha"),mensajes.getString("factura.total")};
+        
+        DefaultTableModel mod = (DefaultTableModel) table.getModel();
+        mod.setColumnIdentifiers(columnas);
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,21 +98,22 @@ public class VentanaListarFactura extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
-                .addGap(25, 25, 25))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
                 .addComponent(btnCancelar)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 46, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 

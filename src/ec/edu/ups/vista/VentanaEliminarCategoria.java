@@ -7,6 +7,8 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCategoria;
 import ec.edu.ups.modelo.Categoria;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,9 +22,22 @@ public class VentanaEliminarCategoria extends javax.swing.JInternalFrame {
      */
     private ControladorCategoria controladorCategoria;
     private int codigo;
+    private Locale localizacion;
+    private ResourceBundle mensajes;
+
     public VentanaEliminarCategoria(ControladorCategoria controladorCategoria) {
         initComponents();
         this.controladorCategoria = controladorCategoria;
+    }
+
+    public void cambiarIdioma(ResourceBundle mensajes) {
+        lblCodigo.setText(mensajes.getString("cliente.codigo"));
+        lblNombre.setText(mensajes.getString("cliente.nombre"));
+        lblDescripcion.setText(mensajes.getString("jlb.descripcion"));
+
+        btnBuscar.setText(mensajes.getString("btn.buscar"));
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
+        btnEliminar.setText(mensajes.getString("btn.eliminar"));
     }
 
     /**
@@ -35,18 +50,18 @@ public class VentanaEliminarCategoria extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         txtNombre = new javax.swing.JTextField();
-        Descripcion = new javax.swing.JLabel();
+        lblDescripcion = new javax.swing.JLabel();
         txtDecripcion = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
         txtCodigo = new javax.swing.JTextField();
-        jLNombre = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
 
         txtNombre.setEditable(false);
 
-        Descripcion.setText("Decripcion");
+        lblDescripcion.setText("Decripcion");
 
         txtDecripcion.setEditable(false);
 
@@ -64,7 +79,7 @@ public class VentanaEliminarCategoria extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setText("Codigo");
+        lblCodigo.setText("Codigo");
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setEnabled(false);
@@ -76,7 +91,7 @@ public class VentanaEliminarCategoria extends javax.swing.JInternalFrame {
 
         txtCodigo.setToolTipText("");
 
-        jLNombre.setText("Nombre");
+        lblNombre.setText("Nombre");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,14 +103,14 @@ public class VentanaEliminarCategoria extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(lblCodigo)
                                 .addGap(76, 76, 76)
                                 .addComponent(btnBuscar)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLNombre)
-                                    .addComponent(Descripcion))
+                                    .addComponent(lblNombre)
+                                    .addComponent(lblDescripcion))
                                 .addGap(47, 47, 47)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNombre)
@@ -115,16 +130,16 @@ public class VentanaEliminarCategoria extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(lblCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLNombre)
+                    .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Descripcion)
+                    .addComponent(lblDescripcion)
                     .addComponent(txtDecripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -143,7 +158,7 @@ public class VentanaEliminarCategoria extends javax.swing.JInternalFrame {
             txtDecripcion.setText(categoria.getDescricpcion());
             codigo = Integer.parseInt(txtCodigo.getText());
             btnEliminar.setEnabled(true);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "No se encontro la categoria", "Buscar Categiria", JOptionPane.OK_OPTION);
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -163,12 +178,12 @@ public class VentanaEliminarCategoria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Descripcion;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JLabel jLNombre;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDecripcion;
     private javax.swing.JTextField txtNombre;

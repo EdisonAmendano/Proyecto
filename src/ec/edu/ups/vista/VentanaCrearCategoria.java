@@ -7,6 +7,8 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCategoria;
 import ec.edu.ups.modelo.Categoria;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,12 +18,24 @@ import javax.swing.JOptionPane;
 public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
     
     private ControladorCategoria controladorCategoria;
+    private Locale localizacion;
+    private ResourceBundle mensajes;
+    
     public VentanaCrearCategoria(ControladorCategoria controladorCategoria) {
         initComponents();
         this.controladorCategoria = controladorCategoria;
         txtCodigo.setText(String.valueOf(controladorCategoria.getCodigo()+1));
     }
 
+    
+     public void cambiarIdioma(ResourceBundle mensajes){
+        lblCodigo.setText(mensajes.getString("cliente.codigo"));
+        lblNombre.setText(mensajes.getString("cliente.nombre"));
+        lblDescripcion.setText(mensajes.getString("jlb.descripcion"));
+        
+        btnGuardar.setText(mensajes.getString("btn.guardar"));
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,27 +45,27 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
-        jLNombre = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        Descripcion = new javax.swing.JLabel();
+        lblDescripcion = new javax.swing.JLabel();
         txtDecripcion = new javax.swing.JTextField();
-        btnGuaradr = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
-        jLabel1.setText("Codigo");
+        lblCodigo.setText("Codigo");
 
         txtCodigo.setToolTipText("");
 
-        jLNombre.setText("Nombre");
+        lblNombre.setText("Nombre");
 
-        Descripcion.setText("Decripcion");
+        lblDescripcion.setText("Decripcion");
 
-        btnGuaradr.setText("Guardar");
-        btnGuaradr.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuaradrActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -72,12 +86,12 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(lblCodigo)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLNombre)
-                                    .addComponent(Descripcion))
+                                    .addComponent(lblNombre)
+                                    .addComponent(lblDescripcion))
                                 .addGap(47, 47, 47)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNombre)
@@ -89,7 +103,7 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
                                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
-                                .addComponent(btnGuaradr)))
+                                .addComponent(btnGuardar)))
                         .addGap(31, 31, 31)
                         .addComponent(btnCancelar)
                         .addGap(0, 46, Short.MAX_VALUE)))
@@ -100,19 +114,19 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(lblCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLNombre)
+                    .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Descripcion)
+                    .addComponent(lblDescripcion)
                     .addComponent(txtDecripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuaradr)
+                    .addComponent(btnGuardar)
                     .addComponent(btnCancelar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -120,7 +134,7 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuaradrActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Categoria categoria = new Categoria();
         categoria.setDescricpcion(txtDecripcion.getText());
         categoria.setNombre(txtNombre.getText());
@@ -130,7 +144,7 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
         txtDecripcion.setText("");
         txtNombre.setText("");
         
-    }//GEN-LAST:event_btnGuaradrActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
@@ -138,11 +152,11 @@ public class VentanaCrearCategoria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Descripcion;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnGuaradr;
-    private javax.swing.JLabel jLNombre;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDecripcion;
     private javax.swing.JTextField txtNombre;

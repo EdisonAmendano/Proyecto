@@ -9,6 +9,8 @@ import ec.edu.ups.controlador.ControladorCategoria;
 import ec.edu.ups.controlador.ControladorProducto;
 import ec.edu.ups.modelo.Categoria;
 import ec.edu.ups.modelo.Producto;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Set;
 import javax.swing.JOptionPane;
 
@@ -23,6 +25,8 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
     private Producto producto;
     private Set<Categoria> lista;
     private int codigo;
+     private Locale localizacion;
+    private ResourceBundle mensajes;
 
     /**
      * Creates new form VentanaModificarProducto
@@ -31,6 +35,18 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
         initComponents();
         this.controladorProducto = controladorProducto;
         this.controladorCategoria = controladorCategoria;
+    }
+       public void cambiarIdioma(ResourceBundle mensajes){
+        lblCodigo.setText(mensajes.getString("cliente.codigo"));
+        lblNombre.setText(mensajes.getString("cliente.nombre"));
+        lblPrecio.setText(mensajes.getString("producto.precio"));
+        lblStock.setText(mensajes.getString("jlb.stock"));
+        lblCategoria.setText(mensajes.getString("menu.categoria"));
+       
+        
+        btnActualizar.setText(mensajes.getString("btn.actualizar"));
+        btnBuscar.setText(mensajes.getString("btn.buscar"));
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
     }
 
     /**
@@ -44,18 +60,18 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
 
         btnBuscar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLPrecio = new javax.swing.JLabel();
-        jLSock = new javax.swing.JLabel();
+        lblPrecio = new javax.swing.JLabel();
+        lblStock = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         txtStock = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLCategoria = new javax.swing.JLabel();
+        lblCategoria = new javax.swing.JLabel();
         jCCategoria = new javax.swing.JComboBox<>();
         btnCancelar = new javax.swing.JButton();
-        jLCodigo = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
-        btnGuardar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -68,13 +84,13 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Producto"));
 
-        jLPrecio.setText("Precio");
+        lblPrecio.setText("Precio");
 
-        jLSock.setText("Stock");
+        lblStock.setText("Stock");
 
-        jLabel1.setText("Nombre");
+        lblNombre.setText("Nombre");
 
-        jLCategoria.setText("Categoria");
+        lblCategoria.setText("Categoria");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,16 +101,16 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLPrecio)
-                            .addComponent(jLabel1))
+                            .addComponent(lblPrecio)
+                            .addComponent(lblNombre))
                         .addGap(60, 60, 60)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNombre)
                             .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLSock)
-                            .addComponent(jLCategoria))
+                            .addComponent(lblStock)
+                            .addComponent(lblCategoria))
                         .addGap(53, 53, 53)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtStock, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
@@ -106,19 +122,19 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLPrecio)
+                    .addComponent(lblPrecio)
                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLSock)
+                    .addComponent(lblStock)
                     .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCategoria)
+                    .addComponent(lblCategoria)
                     .addComponent(jCCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1))
         );
@@ -130,13 +146,13 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
             }
         });
 
-        jLCodigo.setText("Codigo");
+        lblCodigo.setText("Codigo");
 
-        btnGuardar.setText("Guardar");
-        btnGuardar.setEnabled(false);
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizar.setText("Guardar");
+        btnActualizar.setEnabled(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                btnActualizarActionPerformed(evt);
             }
         });
 
@@ -150,7 +166,7 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLCodigo)
+                                .addComponent(lblCodigo)
                                 .addGap(29, 29, 29)
                                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -158,7 +174,7 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(btnGuardar)
+                        .addComponent(btnActualizar)
                         .addGap(39, 39, 39)
                         .addComponent(btnCancelar)))
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -168,14 +184,14 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCodigo)
+                    .addComponent(lblCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addGap(43, 43, 43)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar)
+                    .addComponent(btnActualizar)
                     .addComponent(btnCancelar))
                 .addContainerGap())
         );
@@ -200,14 +216,14 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
                     jCCategoria.addItem(categoria.getNombre());
                 }
             }
-            btnGuardar.setEnabled(true);
+            btnActualizar.setEnabled(true);
         } else {
 
         }
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         Producto producto = new Producto();
         producto.setCodigo(codigo);
         producto.setNombre(txtNombre.getText());
@@ -226,9 +242,9 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
         txtNombre.setText("");
         txtPrecio.setText("");
         txtStock.setText("");
-        btnGuardar.setEnabled(false);
+        btnActualizar.setEnabled(false);
         jCCategoria.removeAllItems();
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
@@ -236,16 +252,16 @@ public class VentanaModificarProducto extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> jCCategoria;
-    private javax.swing.JLabel jLCategoria;
-    private javax.swing.JLabel jLCodigo;
-    private javax.swing.JLabel jLPrecio;
-    private javax.swing.JLabel jLSock;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCategoria;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPrecio;
+    private javax.swing.JLabel lblStock;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;

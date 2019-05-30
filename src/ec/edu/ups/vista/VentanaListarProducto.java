@@ -9,6 +9,8 @@ import ec.edu.ups.controlador.ControladorEmpleado;
 import ec.edu.ups.controlador.ControladorProducto;
 import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Producto;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,6 +20,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VentanaListarProducto extends javax.swing.JInternalFrame {
     private ControladorProducto controladorProducto;
+     private Locale localizacion;
+    private ResourceBundle mensajes;
 
     /**
      * Creates new form VentanaListarProducto
@@ -44,6 +48,16 @@ public class VentanaListarProducto extends javax.swing.JInternalFrame {
             modleo.addRow(datos);
         }
     }
+      public void cambiarIdioma(ResourceBundle mensajes){
+       
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
+        
+        // JTABLE
+        Object [] columnas = {mensajes.getString("cliente.codigo"), mensajes.getString("cliente.nombre"), mensajes.getString("producto.precio"), mensajes.getString("jlb.stock"), mensajes.getString("menu.categoria")};
+        
+        DefaultTableModel mod = (DefaultTableModel) table.getModel();
+        mod.setColumnIdentifiers(columnas);
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -8,6 +8,8 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.modelo.Cliente;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +20,8 @@ import javax.swing.JOptionPane;
 public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     private ControladorCliente controladorcliente;
     private Cliente cliente;
+    private Locale localizacion;
+    private ResourceBundle mensajes;
     /**
      * Creates new form VentanaCrearCliente
      */
@@ -25,6 +29,16 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         initComponents();
         this.controladorcliente=controladorcliente;
         txtCodigo.setText(String.valueOf(this.controladorcliente.getCodigo()+1));
+    }
+     public void cambiarIdioma(ResourceBundle mensajes){
+        lblCodigo.setText(mensajes.getString("cliente.codigo"));
+        lblNombre.setText(mensajes.getString("cliente.nombre"));
+        lblCedula.setText(mensajes.getString("cliente.cedula"));
+        lblDireccion.setText(mensajes.getString("cliente.direccion"));
+        lblTelefono.setText(mensajes.getString("cliente.telefono"));
+        
+        btnGuardar.setText(mensajes.getString("btn.guardar"));
+        btnCancelar.setText(mensajes.getString("btn.cancelar"));
     }
 
     /**
@@ -36,11 +50,11 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLCodigo = new javax.swing.JLabel();
-        jLCedula = new javax.swing.JLabel();
-        jLNombre = new javax.swing.JLabel();
-        jLDireccion = new javax.swing.JLabel();
-        jLTelefono = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
+        lblCedula = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         txtCodigo = new javax.swing.JTextField();
@@ -49,15 +63,15 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         txtDireccion = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
 
-        jLCodigo.setText("Codigo");
+        lblCodigo.setText("Codigo");
 
-        jLCedula.setText("Cedula");
+        lblCedula.setText("Cedula");
 
-        jLNombre.setText("Nombre");
+        lblNombre.setText("Nombre");
 
-        jLDireccion.setText("Direccion");
+        lblDireccion.setText("Direccion");
 
-        jLTelefono.setText("Telefono");
+        lblTelefono.setText("Telefono");
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -84,11 +98,11 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLCodigo)
-                            .addComponent(jLCedula)
-                            .addComponent(jLNombre)
-                            .addComponent(jLDireccion)
-                            .addComponent(jLTelefono)))
+                            .addComponent(lblCodigo)
+                            .addComponent(lblCedula)
+                            .addComponent(lblNombre)
+                            .addComponent(lblDireccion)
+                            .addComponent(lblTelefono)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(btnGuardar)))
@@ -110,23 +124,23 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCodigo)
+                    .addComponent(lblCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCedula)
+                    .addComponent(lblCedula)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLNombre)
+                    .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLDireccion)
+                    .addComponent(lblDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLTelefono)
+                    .addComponent(lblTelefono)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -166,11 +180,11 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JLabel jLCedula;
-    private javax.swing.JLabel jLCodigo;
-    private javax.swing.JLabel jLDireccion;
-    private javax.swing.JLabel jLNombre;
-    private javax.swing.JLabel jLTelefono;
+    private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblDireccion;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblTelefono;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDireccion;
