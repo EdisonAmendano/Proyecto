@@ -39,6 +39,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaListarCategoria vtnlcat;
     private VentanaModificarCategoria vtnmcat;
     private VentanaEliminarCategoria vtnecat;
+    private VentanaListarFactura vtnlf;
     private ControladorCliente controladorCliente;
     private ControladorCategoria controladorCategoria;
     private ControladorEmpleado controladorEmpleado;
@@ -102,6 +103,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuFactura = new javax.swing.JMenu();
         btnCrearFactura = new javax.swing.JMenuItem();
         btnEliminarFactura = new javax.swing.JMenuItem();
+        btnListarFactura = new javax.swing.JMenuItem();
         menuIdioma = new javax.swing.JMenu();
         btnEspañol = new javax.swing.JMenuItem();
         btnIngles = new javax.swing.JMenuItem();
@@ -346,6 +348,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuFactura.add(btnEliminarFactura);
 
+        btnListarFactura.setText("Listar");
+        btnListarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarFacturaActionPerformed(evt);
+            }
+        });
+        menuFactura.add(btnListarFactura);
+
         menuBar.add(menuFactura);
 
         menuIdioma.setText("Idioma");
@@ -552,6 +562,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnListarClienteActionPerformed
 
+    private void btnListarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarFacturaActionPerformed
+        if (vtnlf == null || !vtnlf.isVisible()) {
+            vtnlf = new VentanaListarFactura(controladorFactura);
+            vtnlf.setVisible(true);
+            desktopPane.add(vtnlf);
+        }
+    }//GEN-LAST:event_btnListarFacturaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -607,6 +625,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnListarCategoria;
     private javax.swing.JMenuItem btnListarCliente;
     private javax.swing.JMenuItem btnListarEmpleado;
+    private javax.swing.JMenuItem btnListarFactura;
     private javax.swing.JMenuItem btnListarProducto;
     private javax.swing.JMenuItem btnModificarCategoria;
     private javax.swing.JMenuItem btnModificarCliente;
