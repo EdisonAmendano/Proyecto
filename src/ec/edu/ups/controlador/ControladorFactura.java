@@ -67,4 +67,9 @@ public class ControladorFactura {
     public int getCodigo(){
         return codigo;
     }
+
+    public Set<Factura> getLista() {
+        return lista;
+    }
+       
 }

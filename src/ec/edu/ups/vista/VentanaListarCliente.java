@@ -7,6 +7,7 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.modelo.Cliente;
+import java.text.SimpleDateFormat;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 

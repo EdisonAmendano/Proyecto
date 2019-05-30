@@ -506,7 +506,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btnCrearFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearFacturaActionPerformed
         if (vtncf == null || !vtncf.isVisible()) {
-            // vtncf = new ventanaCrearFactura(controladorFactura);
+            vtncf = new ventanaCrearFactura(controladorEmpleado, controladorCliente, controladorFactura, controladorProducto);
             vtncf.setVisible(true);
             desktopPane.add(vtncf);
         }
@@ -514,7 +514,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btnEliminarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFacturaActionPerformed
         if (vtnef == null || !vtnef.isVisible()) {
-            // vtnef = new VentanaEliminarFactura(controladorFactura);
+            vtnef = new VentanaEliminarFactura(controladorFactura);
             vtnef.setVisible(true);
             desktopPane.add(vtnef);
         }

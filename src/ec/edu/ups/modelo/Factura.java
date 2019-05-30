@@ -18,6 +18,10 @@ public class Factura {
     private Date fecha;
     private Empleado empleado;
     private Cliente cliente;
+    private double total;
+    private double subTotal;
+    private double iva;
+    private String estado;
     private Set<FacturaDetalle> lista;
 
     public Factura() {
@@ -30,6 +34,48 @@ public class Factura {
         this.empleado = empleado;
         this.cliente = cliente;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public double getSubTotal() {
+        return subTotal;
+    }
+
+    public void setSubTotal(double subTotal) {
+        this.subTotal = subTotal;
+    }
+
+    public double getIva() {
+        return iva;
+    }
+
+    public void setIva(double iva) {
+        this.iva = iva;
+    }
+
+    public Set<FacturaDetalle> getLista() {
+        return lista;
+    }
+
+    public void setLista(Set<FacturaDetalle> lista) {
+        this.lista = lista;
+    }
+    
+    
 
     public int getCodigo() {
         return codigo;
@@ -61,6 +107,10 @@ public class Factura {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+    
+    public void addFacturaDetalle(FacturaDetalle facturaDetalle){
+        lista.add(facturaDetalle);
     }
 
     @Override
