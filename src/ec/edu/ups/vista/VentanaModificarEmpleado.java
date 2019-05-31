@@ -54,63 +54,60 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtCodigo = new javax.swing.JTextField();
-        txtSalario = new javax.swing.JTextField();
-        txtCedula = new javax.swing.JTextField();
+        lblNombre = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
+        txtPuesto = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
         txtDireccion = new javax.swing.JTextField();
+        btnActualizar = new javax.swing.JButton();
         txtTelefono = new javax.swing.JTextField();
         lblPuesto = new javax.swing.JLabel();
         lblCodigo = new javax.swing.JLabel();
         lblCedula = new javax.swing.JLabel();
-        lblSalario = new javax.swing.JLabel();
-        lblDireccion = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
-        lblNombre = new javax.swing.JLabel();
-        txtPuesto = new javax.swing.JTextField();
-        lblTelefono = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
+        lblSalario = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        lblDireccion = new javax.swing.JLabel();
+        txtSalario = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
-        txtSalario.setEditable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtCedula.setEditable(false);
-
-        txtNombre.setEditable(false);
-
-        txtDireccion.setEditable(false);
-
-        txtTelefono.setEditable(false);
-
-        lblPuesto.setText("Puesto");
-
-        lblCodigo.setText("Codigo");
-
-        lblCedula.setText("Cedula");
-
-        lblSalario.setText("Salario");
-
-        lblDireccion.setText("Direccion");
-
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
-
+        lblNombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(0, 255, 255));
         lblNombre.setText("Nombre");
+        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        lblTelefono.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTelefono.setForeground(new java.awt.Color(0, 255, 255));
+        lblTelefono.setText("Teléfono");
+        getContentPane().add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         txtPuesto.setEditable(false);
+        txtPuesto.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 110, -1));
 
-        lblTelefono.setText("Telefono");
+        txtNombre.setEditable(false);
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 110, -1));
 
-        btnBuscar.setText("Buscar");
+        txtCedula.setEditable(false);
+        txtCedula.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 110, -1));
+
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/Imagenes/BS.png"))); // NOI18N
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 30, -1));
+
+        txtDireccion.setEditable(false);
+        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 110, -1));
 
         btnActualizar.setText("Actualizar");
         btnActualizar.setEnabled(false);
@@ -119,80 +116,52 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
                 btnActualizarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCodigo)
-                    .addComponent(lblCedula)
-                    .addComponent(lblNombre)
-                    .addComponent(lblDireccion)
-                    .addComponent(lblTelefono)
-                    .addComponent(lblPuesto)
-                    .addComponent(lblSalario))
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCedula)
-                    .addComponent(txtNombre)
-                    .addComponent(txtDireccion)
-                    .addComponent(txtTelefono)
-                    .addComponent(txtPuesto)
-                    .addComponent(txtSalario)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscar)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(btnActualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
-                .addGap(33, 33, 33))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigo)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCedula)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDireccion)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefono)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPuesto)
-                    .addComponent(txtPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSalario)
-                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnActualizar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        txtTelefono.setEditable(false);
+        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 110, -1));
+
+        lblPuesto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPuesto.setForeground(new java.awt.Color(0, 255, 255));
+        lblPuesto.setText("Puesto");
+        getContentPane().add(lblPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+
+        lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(0, 255, 255));
+        lblCodigo.setText("Código");
+        getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        lblCedula.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCedula.setForeground(new java.awt.Color(0, 255, 255));
+        lblCedula.setText("Cédula");
+        getContentPane().add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
+
+        lblSalario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSalario.setForeground(new java.awt.Color(0, 255, 255));
+        lblSalario.setText("Salario");
+        getContentPane().add(lblSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 70, -1));
+
+        lblDireccion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblDireccion.setForeground(new java.awt.Color(0, 255, 255));
+        lblDireccion.setText("Dirección");
+        getContentPane().add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        txtSalario.setEditable(false);
+        txtSalario.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 110, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/Imagenes/tallwe3 (2).jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 304, 359));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -252,6 +221,7 @@ public class VentanaModificarEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblDireccion;

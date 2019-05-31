@@ -52,61 +52,79 @@ public class VentanaEliminarEmpleado extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblCodigo = new javax.swing.JLabel();
-        lblCedula = new javax.swing.JLabel();
-        lblSalario = new javax.swing.JLabel();
-        lblDireccion = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
-        btnCancelar = new javax.swing.JButton();
         txtSalario = new javax.swing.JTextField();
+        lblCodigo = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
-        txtCedula = new javax.swing.JTextField();
-        txtPuesto = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        lblTelefono = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        lblCedula = new javax.swing.JLabel();
+        txtPuesto = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        lblSalario = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
+        lblDireccion = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
+        txtCodigo = new javax.swing.JTextField();
         lblPuesto = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        btnCancelar = new javax.swing.JButton();
+        lblTelefono = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        lblCodigo.setText("Codigo");
-
-        lblCedula.setText("Cedula");
-
-        lblSalario.setText("Salario");
-
-        lblDireccion.setText("Direccion");
-
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtSalario.setEditable(false);
+        txtSalario.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 120, -1));
 
+        lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(0, 255, 255));
+        lblCodigo.setText("Código");
+        getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        lblNombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(0, 255, 255));
         lblNombre.setText("Nombre");
-
-        txtCedula.setEditable(false);
-
-        txtPuesto.setEditable(false);
-
-        txtNombre.setEditable(false);
-
-        lblTelefono.setText("Telefono");
+        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         txtDireccion.setEditable(false);
+        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 120, -1));
 
-        btnBuscar.setText("Buscar");
+        txtCedula.setEditable(false);
+        txtCedula.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 120, -1));
+
+        lblCedula.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCedula.setForeground(new java.awt.Color(0, 255, 255));
+        lblCedula.setText("Cédula");
+        getContentPane().add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        txtPuesto.setEditable(false);
+        txtPuesto.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 120, -1));
+
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/Imagenes/BS.png"))); // NOI18N
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 40, -1));
+
+        lblSalario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSalario.setForeground(new java.awt.Color(0, 255, 255));
+        lblSalario.setText("Salario");
+        getContentPane().add(lblSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         txtTelefono.setEditable(false);
+        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 120, -1));
+
+        lblDireccion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblDireccion.setForeground(new java.awt.Color(0, 255, 255));
+        lblDireccion.setText("Dirección");
+        getContentPane().add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setEnabled(false);
@@ -115,82 +133,33 @@ public class VentanaEliminarEmpleado extends javax.swing.JInternalFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
+        getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 80, -1));
 
+        lblPuesto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPuesto.setForeground(new java.awt.Color(0, 255, 255));
         lblPuesto.setText("Puesto");
+        getContentPane().add(lblPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCodigo)
-                    .addComponent(lblCedula)
-                    .addComponent(lblNombre)
-                    .addComponent(lblDireccion)
-                    .addComponent(lblTelefono)
-                    .addComponent(lblPuesto)
-                    .addComponent(lblSalario))
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCedula)
-                    .addComponent(txtNombre)
-                    .addComponent(txtDireccion)
-                    .addComponent(txtTelefono)
-                    .addComponent(txtPuesto)
-                    .addComponent(txtSalario)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscar)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(btnEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
-                .addGap(33, 33, 33))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigo)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCedula)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDireccion)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefono)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPuesto)
-                    .addComponent(txtPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSalario)
-                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnEliminar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        txtNombre.setEditable(false);
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 120, -1));
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
+
+        lblTelefono.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTelefono.setForeground(new java.awt.Color(0, 255, 255));
+        lblTelefono.setText("Teléfono");
+        getContentPane().add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/Imagenes/tallwe3 (2).jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 328, 359));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -235,6 +204,7 @@ public class VentanaEliminarEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblDireccion;

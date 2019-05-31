@@ -49,26 +49,60 @@ public class VentanaCrearEmpleado extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblDireccion = new javax.swing.JLabel();
+        lblPuesto = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
+        lblSalario = new javax.swing.JLabel();
+        lblCedula = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        txtTelefono = new javax.swing.JTextField();
+        txtPuesto = new javax.swing.JTextField();
+        txtSalario = new javax.swing.JTextField();
         txtCodigo = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
-        lblCodigo = new javax.swing.JLabel();
-        lblCedula = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        lblPuesto = new javax.swing.JLabel();
-        lblSalario = new javax.swing.JLabel();
-        txtPuesto = new javax.swing.JTextField();
-        txtSalario = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
-        lblDireccion.setText("Direccion");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTelefono.setText("Telefono");
+        lblPuesto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPuesto.setForeground(new java.awt.Color(0, 255, 255));
+        lblPuesto.setText("Puesto");
+        getContentPane().add(lblPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(0, 255, 255));
+        lblCodigo.setText("Código");
+        getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        lblTelefono.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTelefono.setForeground(new java.awt.Color(0, 255, 255));
+        lblTelefono.setText("Teléfono");
+        getContentPane().add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+
+        lblSalario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSalario.setForeground(new java.awt.Color(0, 255, 255));
+        lblSalario.setText("Salario");
+        getContentPane().add(lblSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+
+        lblCedula.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCedula.setForeground(new java.awt.Color(0, 255, 255));
+        lblCedula.setText("Cédula");
+        getContentPane().add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        lblNombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(0, 255, 255));
+        lblNombre.setText("Nombre");
+        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        lblDireccion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblDireccion.setForeground(new java.awt.Color(0, 255, 255));
+        lblDireccion.setText("Dirección");
+        getContentPane().add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +110,7 @@ public class VentanaCrearEmpleado extends javax.swing.JInternalFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,88 +118,20 @@ public class VentanaCrearEmpleado extends javax.swing.JInternalFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 100, -1));
+        getContentPane().add(txtPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 100, -1));
+        getContentPane().add(txtSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 100, -1));
 
         txtCodigo.setEditable(false);
+        txtCodigo.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 50, -1));
+        getContentPane().add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 100, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 100, -1));
+        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 100, -1));
 
-        lblCodigo.setText("Codigo");
-
-        lblCedula.setText("Cedula");
-
-        lblNombre.setText("Nombre");
-
-        lblPuesto.setText("Puesto");
-
-        lblSalario.setText("Salario");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCodigo)
-                            .addComponent(lblCedula)
-                            .addComponent(lblNombre)
-                            .addComponent(lblDireccion)
-                            .addComponent(lblTelefono)
-                            .addComponent(lblPuesto)
-                            .addComponent(lblSalario))
-                        .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txtCedula)
-                            .addComponent(txtNombre)
-                            .addComponent(txtDireccion)
-                            .addComponent(txtTelefono)
-                            .addComponent(txtPuesto)
-                            .addComponent(txtSalario))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnGuardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                        .addComponent(btnCancelar)
-                        .addGap(20, 20, 20))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigo)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCedula)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDireccion)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefono)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPuesto)
-                    .addComponent(txtPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSalario)
-                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar)
-                    .addComponent(btnCancelar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/Imagenes/tallwe3 (2).jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 286, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,16 +146,16 @@ public class VentanaCrearEmpleado extends javax.swing.JInternalFrame {
         empleado.setPuesto(txtPuesto.getText());
         empleado.setSalario(Double.parseDouble(txtSalario.getText()));
         controladorEmpleado.create(empleado);
-        
+
         JOptionPane.showMessageDialog(this, "Empleado creado corectamente", "Crear Clente",JOptionPane.OK_OPTION);
         txtCodigo.setText(String.valueOf(this.controladorEmpleado.getCodigo()+1));//esto es para que el codigo se inicialice en 1 y no en 0 como esta en el controlador
 
         txtCedula.setText("");
         txtNombre.setText("");
         txtDireccion.setText("");
-        txtTelefono.setText(""); 
-        txtPuesto.setText(""); 
-        txtSalario.setText(""); 
+        txtTelefono.setText("");
+        txtPuesto.setText("");
+        txtSalario.setText("");
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -200,6 +167,7 @@ public class VentanaCrearEmpleado extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblDireccion;
