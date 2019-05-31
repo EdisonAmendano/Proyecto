@@ -60,6 +60,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         localizacion = new Locale("es", "EC");
         Locale.setDefault(localizacion);
         mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        
     }
 
     public void cambiarIdioma() {
@@ -520,6 +521,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtncc.cambiarIdioma(mensajes);
             vtncc.setVisible(true);
             desktopPane.add(vtncc);
+            vtncc.toFront();
         }
     }//GEN-LAST:event_btnCrearClienteActionPerformed
 
@@ -529,6 +531,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnccat.cambiarIdioma(mensajes);
             vtnccat.setVisible(true);
             desktopPane.add(vtnccat);
+            vtnccat.toFront();
         }
     }//GEN-LAST:event_btnIngresarCategoriaActionPerformed
 
@@ -538,6 +541,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnbcat.cambiarIdioma(mensajes);
             vtnbcat.setVisible(true);
             desktopPane.add(vtnbcat);
+            vtnbcat.toFront();
         }
     }//GEN-LAST:event_btnBuscarCategoriaActionPerformed
 
@@ -547,6 +551,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnmcat.cambiarIdioma(mensajes);
             vtnmcat.setVisible(true);
             desktopPane.add(vtnmcat);
+            vtnmcat.toFront();
         }
     }//GEN-LAST:event_btnModificarCategoriaActionPerformed
 
@@ -556,6 +561,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnlcat.cambiarIdioma(mensajes);
             vtnlcat.setVisible(true);
             desktopPane.add(vtnlcat);
+            vtnlcat.toFront();
         }
     }//GEN-LAST:event_btnListarCategoriaActionPerformed
 
@@ -565,6 +571,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnecat.cambiarIdioma(mensajes);
             vtnecat.setVisible(true);
             desktopPane.add(vtnecat);
+            vtnecat.toFront();
         }
     }//GEN-LAST:event_btnEliminarCategoriaActionPerformed
 
@@ -574,6 +581,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtncp.cambiarIdioma(mensajes);
             vtncp.setVisible(true);
             desktopPane.add(vtncp);
+            vtncp.toFront();
         }
     }//GEN-LAST:event_btnCrearProductoActionPerformed
 
@@ -583,6 +591,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnbp.cambiarIdioma(mensajes);
             vtnbp.setVisible(true);
             desktopPane.add(vtnbp);
+            vtnbp.toFront();
         }
     }//GEN-LAST:event_btnBuscarProductoActionPerformed
 
@@ -592,6 +601,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnmp.cambiarIdioma(mensajes);
             vtnmp.setVisible(true);
             desktopPane.add(vtnmp);
+            vtnmp.toFront();
         }
     }//GEN-LAST:event_btnModificarProductoActionPerformed
 
@@ -601,6 +611,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnep.cambiarIdioma(mensajes);
             vtnep.setVisible(true);
             desktopPane.add(vtnep);
+            vtnep.toFront();
         }
     }//GEN-LAST:event_btnEliminarProductoActionPerformed
 
@@ -610,6 +621,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnlp.cambiarIdioma(mensajes);
             vtnlp.setVisible(true);
             desktopPane.add(vtnlp);
+            vtnlp.toFront();
         }
     }//GEN-LAST:event_btnListarProductoActionPerformed
 
@@ -619,6 +631,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnce.cambiarIdioma(mensajes);
             vtnce.setVisible(true);
             desktopPane.add(vtnce);
+            vtnce.toFront();
         }
     }//GEN-LAST:event_btnCrearEmpleadoActionPerformed
 
@@ -628,6 +641,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnbe.cambiarIdioma(mensajes);
             vtnbe.setVisible(true);
             desktopPane.add(vtnbe);
+            vtnbe.toFront();
         }
     }//GEN-LAST:event_btnBuscarEmpleadoActionPerformed
 
@@ -637,6 +651,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnme.cambiarIdioma(mensajes);
             vtnme.setVisible(true);
             desktopPane.add(vtnme);
+            vtnme.toFront();
         }
     }//GEN-LAST:event_btnModificarEmpleadoActionPerformed
 
@@ -646,6 +661,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnee.cambiarIdioma(mensajes);
             vtnee.setVisible(true);
             desktopPane.add(vtnee);
+            vtnee.toFront();
         }
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
@@ -655,6 +671,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnle.cambiarIdioma(mensajes);
             vtnle.setVisible(true);
             desktopPane.add(vtnle);
+            vtnle.toFront();
         }
     }//GEN-LAST:event_btnListarEmpleadoActionPerformed
 
@@ -664,6 +681,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtncf.cambiarIdioma(mensajes);
             vtncf.setVisible(true);
             desktopPane.add(vtncf);
+            vtncf.toFront();
         }
     }//GEN-LAST:event_btnCrearFacturaActionPerformed
 
@@ -673,6 +691,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnef.cambiarIdioma(mensajes);
             vtnef.setVisible(true);
             desktopPane.add(vtnef);
+            vtnef.toFront();
         }
     }//GEN-LAST:event_btnEliminarFacturaActionPerformed
 
@@ -682,6 +701,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnbc.cambiarIdioma(mensajes);
             vtnbc.setVisible(true);
             desktopPane.add(vtnbc);
+            vtnbc.toFront();
         }
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
@@ -691,6 +711,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnmc.cambiarIdioma(mensajes);
             vtnmc.setVisible(true);
             desktopPane.add(vtnmc);
+            vtnmc.toFront();
         }
     }//GEN-LAST:event_btnModificarClienteActionPerformed
 
@@ -700,6 +721,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnec.cambiarIdioma(mensajes);
             vtnec.setVisible(true);
             desktopPane.add(vtnec);
+            vtnec.toFront();
         }
     }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
@@ -709,6 +731,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             vtnlc.cambiarIdioma(mensajes);
             vtnlc.setVisible(true);
             desktopPane.add(vtnlc);
+            vtnlc.toFront();
         }
     }//GEN-LAST:event_btnListarClienteActionPerformed
 
@@ -719,6 +742,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaListarF.cambiarIdioma(mensajes);
             ventanaListarF.setVisible(true);
             desktopPane.add(ventanaListarF);
+            ventanaListarF.toFront();
         }
     }//GEN-LAST:event_menuFacturaLActionPerformed
     private void btnEspañolActionPerformed(java.awt.event.ActionEvent evt) {
