@@ -127,9 +127,11 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(255, 255, 0));
         lblCodigo.setText("Código");
-        getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 40, -1));
-        getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 70, -1));
+        getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 70, -1));
+        getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 70, -1));
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -137,25 +139,37 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 120, -1));
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 90, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Nombre de la Empresa");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 120, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 160, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
         jLabel2.setText("Direccion de la empresa");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 170, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Telefono de la empresa");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 130, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 170, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setText("Ruc de la empresa");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 100, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 140, -1));
 
+        lblEmpleadoC.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEmpleadoC.setForeground(new java.awt.Color(255, 255, 0));
         lblEmpleadoC.setText("Empleado:");
-        getContentPane().add(lblEmpleadoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 70, -1));
+        getContentPane().add(lblEmpleadoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 100, -1));
 
+        jLIDEmpleado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLIDEmpleado.setForeground(new java.awt.Color(255, 255, 0));
         jLIDEmpleado.setText("ID Empleado");
-        getContentPane().add(jLIDEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 70, -1));
+        getContentPane().add(jLIDEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 100, -1));
 
         txtIDEmpleado.setEditable(false);
         txtIDEmpleado.addActionListener(new java.awt.event.ActionListener() {
@@ -163,13 +177,15 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
                 txtIDEmpleadoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtIDEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 90, -1));
+        getContentPane().add(txtIDEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 90, -1));
 
+        lblNombreE.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNombreE.setForeground(new java.awt.Color(255, 255, 0));
         lblNombreE.setText("Nombre");
         getContentPane().add(lblNombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 60, -1));
 
         txtNombreE.setEditable(false);
-        getContentPane().add(txtNombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 140, -1));
+        getContentPane().add(txtNombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 170, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
 
@@ -261,14 +277,20 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
         txtTotal.setEditable(false);
         getContentPane().add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, 120, -1));
 
+        lblSubTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSubTotal.setForeground(new java.awt.Color(255, 255, 0));
         lblSubTotal.setText("Sub. Total");
-        getContentPane().add(lblSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, 50, 20));
+        getContentPane().add(lblSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, 70, 20));
 
+        lblIva.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblIva.setForeground(new java.awt.Color(255, 255, 0));
         lblIva.setText("IVA");
-        getContentPane().add(lblIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 30, 20));
+        getContentPane().add(lblIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 50, 20));
 
+        lblTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(255, 255, 0));
         lblTotal.setText("Total");
-        getContentPane().add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 40, 20));
+        getContentPane().add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 60, 20));
 
         btnAnular.setText("Anular");
         btnAnular.setEnabled(false);
@@ -362,8 +384,8 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fecha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
-        jLFecha.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLFecha.setText("23-02-2019");
+        jLFecha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLFecha.setText("Fecha");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -371,11 +393,13 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLFecha)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 69, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLFecha, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLFecha)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, 40));
@@ -440,17 +464,7 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAnularActionPerformed
 
     private void txtID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtID1ActionPerformed
-        if (txtID.getText() != null) {
-            Set<Cliente> lista = controladorCliente.getLista();
-            for (Cliente cliente : lista) {
-                if (cliente.getCedula().equals(txtID.getText())) {
-                    this.cliente = cliente;
-                    txtNombre.setText(cliente.getNombre());
-                    txtDireccion.setText(cliente.getDireccion());
-                    txtTelefono.setText(cliente.getTelefono());
-                }
-            }
-        }
+       
     }//GEN-LAST:event_txtID1ActionPerformed
 
     private void txtIDEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDEmpleadoActionPerformed
