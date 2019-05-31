@@ -30,6 +30,7 @@ public class VentanaListarFactura extends javax.swing.JInternalFrame {
         initComponents();
         this.controladorFactura =  controladorFactura;
         formato = new SimpleDateFormat("dd/MM/yyyy");
+        llenarDatos();
     }
     
     public void llenarDatos(){
@@ -40,7 +41,7 @@ public class VentanaListarFactura extends javax.swing.JInternalFrame {
                 factura.getCliente().getCedula(),
                 factura.getCliente().getNombre(),
                 factura.getEmpleado().getNombre(),
-                factura.getFecha(),
+                formato.format(factura.getFecha()),
                 factura.getTotal()};
             model.addRow(datos);
         }

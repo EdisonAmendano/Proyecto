@@ -85,7 +85,7 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
         btnCancelar.setText(mensajes.getString("btn.cancelar"));
         
         //table
-        Object [] columnas = {mensajes.getString("cliente.codigo"), mensajes.getString("cliente.nombre"), mensajes.getString("factura.cantidad"), mensajes.getString("factura.descripcion"), mensajes.getString("producto.precio"), mensajes.getString("factura.total")};
+        Object [] columnas = {mensajes.getString("cliente.codigo"), mensajes.getString("factura.cantidad"), mensajes.getString("cliente.nombre"), mensajes.getString("factura.descripcion"), mensajes.getString("producto.precio"), mensajes.getString("factura.total")};
         
         DefaultTableModel mod = (DefaultTableModel) table.getModel();
         mod.setColumnIdentifiers(columnas);

@@ -53,7 +53,7 @@ public class VentanaEliminarFactura extends javax.swing.JInternalFrame {
         btnAnular.setText(mensajes.getString("menu.item.anular"));
         
         //table
-        Object [] columnas = {mensajes.getString("cliente.codigo"), mensajes.getString("cliente.nombre"), mensajes.getString("factura.cantidad"), mensajes.getString("factura.descripcion"), mensajes.getString("producto.precio"), mensajes.getString("factura.total")};
+        Object [] columnas = {mensajes.getString("cliente.codigo"), mensajes.getString("cliente.cantidad"), mensajes.getString("factura.nombre"), mensajes.getString("factura.descripcion"), mensajes.getString("producto.precio"), mensajes.getString("factura.total")};
         
         DefaultTableModel mod = (DefaultTableModel) table.getModel();
         mod.setColumnIdentifiers(columnas);
