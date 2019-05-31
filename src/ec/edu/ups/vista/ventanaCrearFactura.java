@@ -70,11 +70,11 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
         
         //Jlabel
         lblCodigo.setText(mensajes.getString("cliente.codigo"));
-        txtNombreE.setText(mensajes.getString("cliente.nombre"));
+        lblNombre.setText(mensajes.getString("cliente.nombre"));
         lblNombreE.setText(mensajes.getString("cliente.nombre")); 
         lblCedula.setText(mensajes.getString("cliente.Cedula"));
-        txtDireccion.setText(mensajes.getString("cliente.direccion"));
-        txtTelefono.setText(mensajes.getString("cliente.telefono"));
+        lblDireccion.setText(mensajes.getString("cliente.direccion"));
+        lblTelefono.setText(mensajes.getString("cliente.telefono"));
         lblEmpeladoC.setText(mensajes.getString("empleado.cedula")); 
         lblSubTotal.setText(mensajes.getString("factura.subtotal"));
         lblIva.setText(mensajes.getString("factura.iva"));
@@ -99,95 +99,55 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblCodigo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLEmpleado = new javax.swing.JLabel();
-        lblEmpeladoC = new javax.swing.JLabel();
-        txtIDE = new javax.swing.JTextField();
-        lblNombreE = new javax.swing.JLabel();
-        txtNombreE = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
-        lblCedula1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblCedula = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
-        lblNombre1 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        lblDireccion1 = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
-        lblTelefono1 = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         lblSubTotal = new javax.swing.JLabel();
+        txtSubTotal = new javax.swing.JTextField();
         lblIva = new javax.swing.JLabel();
+        txtIVA = new javax.swing.JTextField();
         lblTotal = new javax.swing.JLabel();
+        txtTotal = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLFecha = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        txtTotal = new javax.swing.JTextField();
-        txtIVA = new javax.swing.JTextField();
-        txtSubTotal = new javax.swing.JTextField();
-        txtCodigo = new javax.swing.JTextField();
-        jLFecha = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLEmpleado = new javax.swing.JLabel();
+        txtNombreE = new javax.swing.JTextField();
+        lblEmpeladoC = new javax.swing.JLabel();
+        txtIDE = new javax.swing.JTextField();
+        lblNombreE = new javax.swing.JLabel();
 
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1.setText("Nombre de la empresa");
 
-        lblCodigo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblCodigo.setForeground(new java.awt.Color(255, 255, 0));
-        lblCodigo.setText("Código");
-        getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 70, -1));
+        jLabel2.setText("Direccionde la empresa");
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel1.setText("Nombre de la Empresa");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 160, -1));
+        lblCodigo.setText("Codigo");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel2.setText("Direccion de la empresa");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 180, -1));
+        txtCodigo.setEditable(false);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Telefono de la empresa");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 170, -1));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setText("Ruc de la empresa");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 140, -1));
 
-        jLEmpleado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLEmpleado.setForeground(new java.awt.Color(255, 255, 0));
-        jLEmpleado.setText("Empleado:");
-        getContentPane().add(jLEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 80, -1));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
 
-        lblEmpeladoC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblEmpeladoC.setForeground(new java.awt.Color(255, 255, 0));
-        lblEmpeladoC.setText("ID Empleado");
-        getContentPane().add(lblEmpeladoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 100, -1));
-
-        txtIDE.setEditable(false);
-        txtIDE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDEActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtIDE, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 90, -1));
-
-        lblNombreE.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblNombreE.setForeground(new java.awt.Color(255, 255, 0));
-        lblNombreE.setText("Nombre");
-        getContentPane().add(lblNombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 60, -1));
-
-        txtNombreE.setEditable(false);
-        getContentPane().add(txtNombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 140, -1));
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
-
-        lblCedula1.setText("ID");
+        lblCedula.setText("ID");
 
         txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,109 +155,122 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
             }
         });
 
-        lblNombre1.setText("Nombre");
+        lblNombre.setText("Nombre");
 
         txtNombre.setEditable(false);
-        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblDireccion1.setText("Direccion");
+        lblDireccion.setText("Direccion");
 
         txtDireccion.setEditable(false);
-        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblTelefono1.setText("Telefono");
+        lblTelefono.setText("Telefono");
 
         txtTelefono.setEditable(false);
-        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(lblCedula1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblCedula)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblNombre1)
+                        .addComponent(lblNombre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNombre))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(lblDireccion1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblDireccion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblTelefono1)
+                        .addComponent(lblTelefono)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)))
+                        .addComponent(txtTelefono)))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCedula1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCedula)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombre1)
+                    .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDireccion1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTelefono1)
+                    .addComponent(lblTelefono)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 480, -1));
-
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null}
             },
             new String [] {
                 "Codigo", "Cant.", "Descripcion", "Precio", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                true, true, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        table.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tableKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(table);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 480, 120));
-
-        lblSubTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblSubTotal.setForeground(new java.awt.Color(255, 255, 0));
         lblSubTotal.setText("Sub. Total");
-        getContentPane().add(lblSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, 80, 20));
 
-        lblIva.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblIva.setForeground(new java.awt.Color(255, 255, 0));
+        txtSubTotal.setEditable(false);
+
         lblIva.setText("IVA");
-        getContentPane().add(lblIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 30, 20));
 
-        lblTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblTotal.setForeground(new java.awt.Color(255, 255, 0));
+        txtIVA.setEditable(false);
+
         lblTotal.setText("Total");
-        getContentPane().add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 40, 20));
+
+        txtTotal.setEditable(false);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+
+        jLFecha.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLFecha.setText("23-02-2019");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLFecha)
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLFecha))
+        );
 
         btnGuardar.setText("Guardar");
-        btnGuardar.setEnabled(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, 120, -1));
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -305,50 +278,207 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 130, -1));
 
-        txtTotal.setEditable(false);
-        getContentPane().add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, 120, -1));
+        jLEmpleado.setText("Empleado: ");
 
-        txtIVA.setEditable(false);
-        txtIVA.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreE.setEditable(false);
+
+        lblEmpeladoC.setText("ID Empleado");
+
+        txtIDE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIVAActionPerformed(evt);
+                txtIDEActionPerformed(evt);
             }
         });
-        getContentPane().add(txtIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, 120, 20));
 
-        txtSubTotal.setEditable(false);
-        txtSubTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSubTotalActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, 120, 20));
+        lblNombreE.setText("Nombre");
 
-        txtCodigo.setEditable(false);
-        txtCodigo.setBackground(new java.awt.Color(255, 255, 255));
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 70, -1));
-
-        jLFecha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLFecha.setForeground(new java.awt.Color(255, 255, 0));
-        jLFecha.setText("23-02-2019");
-        getContentPane().add(jLFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/Imagenes/taller2.jpg"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 480, 680));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCodigo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLEmpleado))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(128, 128, 128)
+                                .addComponent(btnGuardar)
+                                .addGap(43, 43, 43)
+                                .addComponent(btnCancelar))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblIva)
+                                    .addComponent(lblSubTotal)
+                                    .addComponent(lblTotal))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtSubTotal)
+                                    .addComponent(txtIVA)
+                                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblEmpeladoC)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtIDE, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNombreE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNombreE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(317, 317, 317)
+                        .addComponent(jLabel5)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCodigo)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLEmpleado))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEmpeladoC)
+                            .addComponent(txtIDE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNombreE)
+                            .addComponent(txtNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSubTotal)
+                            .addComponent(txtSubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIva)
+                            .addComponent(txtIVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTotal)
+                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGuardar)
+                            .addComponent(btnCancelar))))
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    private void txtIDEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDEActionPerformed
+        if (!txtIDE.getText().equals(null)) {
+            Set<Empleado> lista = controladorEmpleado.getLista();
+            for (Empleado emplead : lista) {
+                if (emplead.getCedula().equals(txtIDE.getText())) {
+                    this.empleado = emplead;
+                    txtNombreE.setText(emplead.getNombre());
+                }
+            }
+        }
+    }//GEN-LAST:event_txtIDEActionPerformed
+
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
+        if (txtID.getText() != null) {
+            Set<Cliente> lista = controladorCliente.getLista();
+            for (Cliente cliente : lista) {
+                if (cliente.getCedula().equals(txtID.getText())) {
+                    this.cliente = cliente;
+                    txtNombre.setText(cliente.getNombre());
+                    txtDireccion.setText(cliente.getDireccion());
+                    txtTelefono.setText(cliente.getTelefono());
+                }
+            }
+        }
+
+    }//GEN-LAST:event_txtIDActionPerformed
+
+    private void tableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()) != null) {
+                int fila = table.getSelectedRow();
+                int columna = table.getSelectedColumn();
+                Object[] datos = {"", 0, "", "", ""};
+                if (columna == 0) {
+                    int codigo = Integer.parseInt(table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()).toString());
+                    double precio;
+                    int cantidad = 0;
+                    producto = controladorProducto.read(Integer.parseInt(table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()).toString()));
+                    precio = producto.getPrecio();
+                    model.removeRow(fila);
+                    total1 = cantidad * producto.getPrecio();
+                    Object[] datos1 = {codigo, cantidad, producto.getNombre(), producto.getPrecio(), total1};
+                    model.addRow(datos1);
+                    model.addRow(datos);
+                } else if (columna == 1) {
+                    int codigo = Integer.parseInt(table.getValueAt(table.getSelectedRow(), table.getSelectedColumn() - 1).toString());
+                    int cantidad = Integer.parseInt(table.getValueAt(fila, columna).toString());
+                    if (cantidad <= producto.getStock()) {
+                        model.removeRow(fila);
+                        model.removeRow(table.getRowCount() - 1);
+                        total1 = producto.getPrecio() * cantidad;
+                        Object[] datos1 = {codigo, cantidad, producto.getNombre(), producto.getPrecio(), total1};
+                        model.addRow(datos1);
+                        model.addRow(datos);
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Stock insuficiente","Stock", JOptionPane.OK_OPTION);
+                        cantidad = 0;
+                        table.setValueAt(0, fila, columna);
+                    }
+                }
+                subTotal = total1 + subTotal;
+                iva = subTotal * 0.12;
+                total = subTotal + iva;
+                txtSubTotal.setText(String.valueOf(subTotal));
+                txtIVA.setText(String.valueOf(iva));
+                txtTotal.setText(String.valueOf(total));
+            }
+        }
+    }//GEN-LAST:event_tableKeyReleased
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Factura factura = new Factura();
@@ -358,32 +488,25 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
         factura.setIva(iva);
         factura.setTotal(total);
         factura.setFecha(fecha);
-        
-        for(int i=0; i<table.getRowCount() -1; i++){
-            facturaDetalle =new FacturaDetalle();
+        for (int i = 0; i < table.getRowCount() - 1; i++) {
+            System.out.println(i);
+            facturaDetalle = new FacturaDetalle();
             facturaDetalle.setCodigo(Integer.parseInt(table.getValueAt(i, 0).toString()));
-            
-            int cant= Integer.parseInt(table.getValueAt(i, 1).toString());
+            int cant = Integer.parseInt(table.getValueAt(i, 1).toString());
             int c = cant;
-            
             Producto producto = controladorProducto.read(Integer.parseInt(table.getValueAt(i, 0).toString()));
             producto.setStock(producto.getStock()-c);
-            
             controladorProducto.update(producto);
-            
             facturaDetalle.setCantidad(c);
             facturaDetalle.setProducto(controladorProducto.read(Integer.parseInt(table.getValueAt(i, 0).toString())));
             facturaDetalle.setPrecio(Double.parseDouble(table.getValueAt(i, 3).toString()));
             facturaDetalle.setSubtotal(Double.parseDouble(table.getValueAt(i, 4).toString()));
             factura.addFacturaDetalle(facturaDetalle);
-            
-            
-        }   
-        
-
-        factura.setEstado("Activado");
-        btnGuardar.setEnabled(false);
+        }
+        factura.setEstado("Activo");
+        controladorFactura.create(factura);
         JOptionPane.showMessageDialog(this, "Factura Creada", "Crear Factura", JOptionPane.OK_OPTION);
+        txtCodigo.setText(String.valueOf(controladorFactura.getCodigo() + 1));
         txtID.setText("");
         txtIDE.setText("");
         txtNombreE.setText("");
@@ -400,44 +523,9 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
         subTotal = 0;
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
-        if (txtID.getText() != null) {
-            Set<Cliente> lista = controladorCliente.getLista();
-            for (Cliente cliente : lista) {
-                if (cliente.getCedula().equals(txtID.getText())) {
-                    this.cliente = cliente;
-                    txtNombre.setText(cliente.getNombre());
-                    txtDireccion.setText(cliente.getDireccion());
-                    txtTelefono.setText(cliente.getTelefono());
-                }
-            }
-        }
-    }//GEN-LAST:event_txtIDActionPerformed
-
-    private void txtIDEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDEActionPerformed
-        // TODO add your handling code here:
-         if (!txtIDE.getText().equals(null)) {//es para ver si la caja de texto no esta vacia
-            Set<Empleado> lista = controladorEmpleado.getLista();//crear una lista
-            for (Empleado emplead : lista) {//recorre la lista creada
-                if (emplead.getCedula().equals(txtIDE.getText())) {//busca la cedula del empleado en la lista
-                    this.empleado = emplead;//se guarda
-                    txtNombreE.setText(emplead.getNombre());//se envia el nombre a la caja de texto
-                }
-            }
-        }
-    }//GEN-LAST:event_txtIDEActionPerformed
-
-    private void txtIVAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIVAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIVAActionPerformed
-
-    private void txtSubTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSubTotalActionPerformed
-
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -449,18 +537,19 @@ public class ventanaCrearFactura extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCedula1;
+    private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblCodigo;
-    private javax.swing.JLabel lblDireccion1;
+    private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblEmpeladoC;
     private javax.swing.JLabel lblIva;
-    private javax.swing.JLabel lblNombre1;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombreE;
     private javax.swing.JLabel lblSubTotal;
-    private javax.swing.JLabel lblTelefono1;
+    private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JTable table;
     private javax.swing.JTextField txtCodigo;
