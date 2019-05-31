@@ -477,6 +477,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuFactura.add(btnEliminarFactura);
 
+        menuFacturaL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/Imagenes/lista.png"))); // NOI18N
         menuFacturaL.setText("Listar");
         menuFacturaL.setToolTipText("");
         menuFacturaL.addActionListener(new java.awt.event.ActionListener() {
